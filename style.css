@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  fontm-family: Arial, sans-serif;
+}
+
+/* HEADER */
+.header {
+  background: #2E2E2E;
+  padding: 15px 0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+}
+
+.logo {
+  color: white;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  color: white;
+}
+
+.btn {
+  background: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+}
+
+/* FOOTER */
+.footer {
+  background: #555555;
+  color: white;
+  text-align: center;
+  padding: 30px;
+}

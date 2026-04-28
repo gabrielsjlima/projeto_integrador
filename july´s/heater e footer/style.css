@@ -1,0 +1,33 @@
+body{
+margin: 0;
+  fontm-family: Arial, sans-serif;
+}
+header{
+    background-color: #130f1e;
+    color: white;
+    padding: 15px;
+
+}
+header div {
+    display: flex;
+justify-content: space-between;
+align-items: center;
+}
+    nav a{
+        color: white;
+        margin-left: 15px;
+        text-decoration: none;
+    }
+    .button{ 
+        background-color: rgb(184, 0, 0);
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+    footer{
+        background-color: #222;
+        color: white;
+        text-align: center;
+        padding: 10px;
+    }
