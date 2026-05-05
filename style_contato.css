@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+#faqs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: lightgray;
+    padding: 50px;
+}
+
+#faqs h1 {
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#faqs hr {
+    width: 40px;
+    height: 3px;
+    background-color: red;
+    border: 0;
+    margin-bottom: 20px;
+}
+
+#faqs .perguntas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 15px;
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.2)
+}
+
+#faqs .respostas {
+    display: none;
+}
+
+#faqs #orcamento {
+    background-color: brown;
+    padding: 15px 15px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    margin-top: 20px;
+    color: white;
+    text-transform: uppercase;
+}
+
+#dados {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: gray;
+    padding: 50px;
+}
+
+#dados h1 {
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#dados hr {
+    width: 40px;
+    height: 3px;
+    background-color: red;
+    border: 0;
+    margin-bottom: 20px;
+}
+
+#dados .descricoes{
+    font-size: 14px;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+#container-fixo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: brown;
+}
+
+#fixo {
+    color: white;
+    line-height: 1.5;
+}
+
+#fixo button {
+    background-color: brown;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
