@@ -1,0 +1,80 @@
+/* reset temporário do body */
+html > body {
+    margin: 0 !important;
+}
+ header{
+    min-height: 20vh; 
+    background-color: red;
+    color: #FFF;
+    text-align: center;
+    font-weight: bold;
+ } 
+
+/* 
+   RESET LOCAL: 
+   Garante que o carrossel ignore estilos globais, evitando que seu layout seja quebrado
+   e que não quebre o layout dos demais integrantes 
+*/
+
+.home-carrossel-section, 
+.home-carrossel-section * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--carrossel-font-main);
+}
+
+.home-carrossel-section {
+    width: 100%;
+    overflow: hidden; /* evitar a barra de rolagem lateral */
+    position: relative;
+    background-color: #262626; /* alterar para a cor definida em root */
+}
+
+/* --- BREAKPOINTS --- */
+
+/* MOBILE FIRST (até 600px - modo retrato) */
+.home-carrossel-container {
+    display: flex;
+    flex-direction: column; /* No mobile, o texto é sobreposto verticalmente */
+    height: auto;
+}
+
+.home-carrossel-sobrepor {
+    /* Gradiente vertical no mobile para não esmagar a imagem */
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+}
+
+/* TABLET E CELULARES PAISAGEM (601px até 1024px) */
+@media (min-width: 601px) {
+    .home-carrossel-container {
+        height: 450px; /* Altura fixa tablets (teste)*/
+    }
+
+    .home-carrossel-sobrepor {
+        top: 0;
+        left: 0;
+        width: 50%; /* Ocupa metade da largura com o gradiente */
+        height: 100%;
+        background: var(--carrossel-gradient);
+        display: flex;
+        align-items: center;
+        padding-left: 50px;
+    }
+}
+
+/* DESKTOP (Acima de 1025px) */
+@media (min-width: 1025px) {
+    .home-carrossel-container {
+        height: 600px;
+    }
+
+    .home-carrossel-sobrepor {
+        width: 40%; /* deixando mais espaço para o texto */
+        padding-left: 80px;
+    }
+}
