@@ -86,22 +86,44 @@
 
 #container-fixo {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: brown;
+    max-width: 480px;
+    padding-bottom: 20px;
+}
+
+#topo {
+    display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    background-color: brown;
+}
+
+#topo i {
+    padding: 25px;
 }
 
 #fixo {
     color: white;
-    line-height: 1.5;
+    padding: 25px;
 }
 
-#fixo button {
+#fixo h1 {
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+#fixo p {
+    line-height: 1.6;
+}
+
+#container-fixo button {
     background-color: brown;
     border: 1px solid rgba(255, 255, 255, 0.5);
     color: white;
-    padding: 10px 20px;
+    font-size: 16px;
+    padding: 15px 30px;
     border-radius: 5px;
     text-transform: uppercase;
 }
