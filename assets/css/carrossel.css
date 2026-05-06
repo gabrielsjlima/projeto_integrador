@@ -1,8 +1,5 @@
 /* reset temporário do body */
-html > body {
-    margin: 0 !important;
-}
- header{
+header{
     min-height: 20vh; 
     background-color: red;
     color: #FFF;
@@ -36,12 +33,12 @@ html > body {
 /* MOBILE FIRST (até 600px - modo retrato) */
 .home-carrossel-container {
     display: flex;
-    flex-direction: column; /* No mobile, o texto é sobreposto verticalmente */
+    flex-direction: column; /* No mobile, o texto deve ser sobreposto verticalmente */
     height: auto;
 }
 
 .home-carrossel-sobrepor {
-    /* Gradiente vertical no mobile para não esmagar a imagem */
+    /* Gradiente vertical no mobile */
     background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
     position: absolute;
     bottom: 0;
