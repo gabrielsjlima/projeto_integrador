@@ -1,0 +1,17 @@
+:root {
+    /* Cores Principais */
+    --primaria: #3498db;
+    --secundaria: #2ecc71;
+       
+    /* Escala de Cinzas / Neutros */
+    --texto: #f4f4f4;
+    --texto_escuro: #333333;
+    --texto_branco: #ffffff;
+     
+   /* Cores de Feedback */
+   --erro: #e74c3c;
+   --sucesso: #27ae60;
+
+   /* faq */
+   --faq: #FF0000;
+   }
