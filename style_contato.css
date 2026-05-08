@@ -3,7 +3,7 @@
     padding: 0;
 }
 
-#container {
+#contato {
     max-width: 480px;
     margin: 0 auto;
 }
@@ -54,9 +54,10 @@
     margin-top: 20px;
     color: white;
     text-transform: uppercase;
+    align-self: center;
 }
 
-#dados {
+#info-empresa {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -64,13 +65,13 @@
     padding: 50px;
 }
 
-#dados h1 {
+#info-empresa h1 {
     text-transform: uppercase;
     font-size: 20px;
     margin-bottom: 10px;
 }
 
-#dados hr {
+#info-empresa hr {
     width: 40px;
     height: 3px;
     background-color: red;
@@ -78,47 +79,46 @@
     margin-bottom: 20px;
 }
 
-#dados .descricoes{
+#info-empresa .descricoes{
     font-size: 14px;
     margin-bottom: 15px;
     line-height: 1.6;
 }
 
-#container-fixo {
+#container-frase {
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: brown;
-    max-width: 480px;
     padding-bottom: 20px;
 }
 
-#topo {
+#imagem-caminhao {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-#topo i {
+#imagem-caminhao i {
     padding: 25px;
 }
 
-#fixo {
+#frase {
     color: white;
     padding: 25px;
 }
 
-#fixo h1 {
+#frase h1 {
     font-size: 20px;
     text-transform: uppercase;
     margin-bottom: 10px;
 }
 
-#fixo p {
+#frase p {
     line-height: 1.6;
 }
 
-#container-fixo button {
+#container-frase button {
     background-color: brown;
     border: 1px solid rgba(255, 255, 255, 0.5);
     color: white;
