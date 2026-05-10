@@ -1,77 +1,73 @@
-/* reset temporário do body */
-header{
-    min-height: 20vh; 
-    background-color: red;
-    color: #FFF;
-    text-align: center;
-    font-weight: bold;
- } 
-
-/* 
-   RESET LOCAL: 
-   Garante que o carrossel ignore estilos globais, evitando que seu layout seja quebrado
-   e que não quebre o layout dos demais integrantes 
-*/
-
-.home-carrossel-section, 
-.home-carrossel-section * {
+*{ /*reset*/
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: var(--carrossel-font-main);
+}
+header{
+    background-color: red;
+    height: 12vh;
+}
+.restante{
+    background-color: green;
+    height: 800px;
 }
 
-.home-carrossel-section {
-    width: 100%;
-    overflow: hidden; /* evitar a barra de rolagem lateral */
-    position: relative;
-    background-color: #262626; /* alterar para a cor definida em root */
-}
-
-/* --- BREAKPOINTS --- */
-
-/* MOBILE FIRST (até 600px - modo retrato) */
-.home-carrossel-container {
+.track{
     display: flex;
-    flex-direction: column; /* No mobile, o texto deve ser sobreposto verticalmente */
-    height: auto;
+    overflow-x: auto;
+    scroll-snap-type: mandatory;
 }
-
-.home-carrossel-sobrepor {
-    /* Gradiente vertical no mobile */
-    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
-    position: absolute;
-    bottom: 0;
+.slide{
+    flex: 0 0 100vw; /*ocupa a tela toda */
+    height: 88vh;
+    display: grid;
+    grid-template-areas: "stack"; /*área única */
+    scroll-snap-align: center;
+}
+.slide img, .slide .overlay{
+    grid-area: stack; /*faz ocupar a mesma área, um sob o outro */
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.overlay{
+    display: grid;
+    /*mobile: texto embaixo e gradiente escuro embaixo*/
+    align-content: end;
     padding: 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.99)0%, transparent 60%);
+    color: #FFF;
+    transition: all 0.5s ease;
 }
 
-/* TABLET E CELULARES PAISAGEM (601px até 1024px) */
-@media (min-width: 601px) {
-    .home-carrossel-container {
-        height: 450px; /* Altura fixa tablets (teste)*/
+/* quando tela for larga: desktop ou mobile paisagem */
+@media (min-width: 768px){
+    .overlay{
+        align-content: center;
+        justify-content: start;
+        padding: 5%;
+        background: linear-gradient(to right, rgba(0,0,0,0.99)0%, transparent 60%);
+    }
+    .carrossel-content{
+        max-width: 400px;
     }
 
-    .home-carrossel-sobrepor {
-        top: 0;
-        left: 0;
-        width: 50%; /* Ocupa metade da largura com o gradiente */
-        height: 100%;
-        background: var(--carrossel-gradient);
-        display: flex;
-        align-items: center;
-        padding-left: 50px;
-    }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* DESKTOP (Acima de 1025px) */
-@media (min-width: 1025px) {
-    .home-carrossel-container {
-        height: 600px;
-    }
+.slide .carrossel-content h2 {
+  animation: fadeInUp 0.8s ease forwards;
+}
 
-    .home-carrossel-sobrepor {
-        width: 40%; /* deixando mais espaço para o texto */
-        padding-left: 80px;
-    }
+.slide .carrossel-content p {
+  animation: fadeInUp 0.8s ease forwards 0.2s; /* Delay de 0.2s para o texto */
 }
