@@ -42,8 +42,16 @@
     border: 1px solid rgba(0, 0, 0, 0.2)
 }
 
+#faqs .perguntas i {
+    transition: transform 0.3s ease;
+}
+
 #faqs .respostas {
     display: none;
+    padding: 0px 15px 15px 15px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #444;
 }
 
 #faqs #orcamento {
@@ -81,8 +89,14 @@
 
 #info-empresa .descricoes{
     font-size: 14px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     line-height: 1.6;
+}
+
+#info-empresa iframe {
+    max-width: 380px;
+    height: 300px;
+    align-self: center;
 }
 
 #container-frase {
@@ -126,4 +140,76 @@
     padding: 15px 30px;
     border-radius: 5px;
     text-transform: uppercase;
+}
+
+@media (min-width: 1024px) {
+    #contato {
+        max-width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        height: 100vh;
+    }
+
+    #faqs {
+        flex: 0.6;
+    }
+
+    #faqs h1 {
+        font-size: 25px;
+    }
+
+    #faqs hr {
+        margin-bottom: 40px;
+    }
+
+    #faqs .perguntas {
+        font-size: 18px;
+    }
+
+    #faqs #orcamento {
+        font-size: 18px;
+        margin-top: 50px;
+    }
+    
+    #info-empresa {
+        flex: 1;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    #info-empresa .descricoes-container {
+        flex: 1;             
+    }
+
+    #info-empresa h1 {
+        font-size: 25px;
+    }
+
+    #info-empresa hr{
+        margin-bottom: 50px;
+    }
+
+    #info-empresa .descricoes {
+        font-size: 20px;
+        margin-bottom: 50px;
+    }
+
+    #info-empresa iframe {
+        flex: 1;
+        max-width: 440px;
+        height: 500px;
+        align-self: center;
+    }
+
+    #container-frase {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0px 80px;
+    }
+
+    #imagem-caminhao {
+        flex: 1;
+    }
 }
