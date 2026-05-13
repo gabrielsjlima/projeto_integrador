@@ -3,68 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrossel Premium - Roleta Infinita</title>
     <link rel="stylesheet" href="assets/css/carrossel.css">
     <link rel="stylesheet" href="assets/css/principal.css">
-    <title>Document</title>
 </head>
-<body>
-    <!-- header para demarcar posição. DEVERÁ ser excluído no merge -->
-    <header><span>PARA POSICIONAMENTO</span></header>
+<body class="main-grid">
 
-    <section class="carrossel">
+    <!-- Header temporário (12vh) REMOVER ANTES DO MERGE-->
+    <header class="temp-header">
+        <span>PARA POSICIONAMENTO</span>
+    </header>
+
+    <main class="carrossel" id="home">
         <div class="track">
-            <!--slide 1 -->
-            <article class="slide">
-                <img src="assets/imgs/01.webp" alt="descrição da imagem 1"> <!-- alterar depois que tiver as imagens corretas-->
-                <div class="overlay">
-                    <div class="carrossel-content">
-                        <h2>Título slide 1</h2>
-                        <p>Breve descrição ou texto de impacto</p>
-                    </div>
+
+            <!-- CLONE DO ÚLTIMO SLIDE -->
+            <article class="slide clone">
+                <picture class="slide-image">
+                    <source media="(max-width: 480px)" srcset="assets/imgs/cel/05.webp">
+                    <source media="(max-width: 1024px)" srcset="assets/imgs/wide/05.webp">
+                    <img src="assets/imgs/wide/05.webp" alt="Destaque 05">
+                </picture>
+                <div class="overlay"></div>
+                <div class="carrossel-content">
+                    <h2>Título do Slide 05</h2>
+                    <span>Frase de destaque do quinto slide</span>
                 </div>
             </article>
-            <!--slide 2 -->
-            <article class="slide">
-                <img src="assets/imgs/02.webp" alt="descrição da imagem 1"> <!-- alterar depois que tiver as imagens corretas-->
-                <div class="overlay">
-                    <div class="carrossel-content">
-                        <h2>Título slide 2</h2>
-                        <p>Breve descrição ou texto de impacto</p>
-                    </div>
+
+            <!-- SLIDE 01 -->
+            <article class="slide active">
+                <picture class="slide-image">
+                    <source media="(max-width: 480px)" srcset="assets/imgs/cel/01.webp">
+                    <source media="(max-width: 1024px)" srcset="assets/imgs/wide/01.webp">
+                    <img src="assets/imgs/wide/01.webp" alt="Destaque 01">
+                </picture>
+                <div class="overlay"></div>
+                <div class="carrossel-content">
+                    <h2>Título do Slide 01</h2>
+                    <span>Frase de informação ou destaque importante</span>
                 </div>
             </article>
-            <!--slide 3 -->
+
+            <!-- SLIDE 02 -->
             <article class="slide">
-                <img src="assets/imgs/03.webp" alt="descrição da imagem 1"> <!-- alterar depois que tiver as imagens corretas-->
-                <div class="overlay">
-                    <div class="carrossel-content">
-                        <h2>Título slide 3</h2>
-                        <p>Breve descrição ou texto de impacto</p>
-                    </div>
+                <picture class="slide-image">
+                    <source media="(max-width: 480px)" srcset="assets/imgs/cel/02.webp">
+                    <source media="(max-width: 1024px)" srcset="assets/imgs/wide/02.webp">
+                    <img src="assets/imgs/wide/02.webp" alt="Destaque 02">
+                </picture>
+                <div class="overlay"></div>
+                <div class="carrossel-content">
+                    <h2>Título do Slide 02</h2>
+                    <span>Descrição curta para o segundo slide</span>
                 </div>
             </article>
-            <!--slide 4 -->
+
+            <!-- SLIDE 03 -->
             <article class="slide">
-                <img src="assets/imgs/04.webp" alt="descrição da imagem 1"> <!-- alterar depois que tiver as imagens corretas-->
-                <div class="overlay">
-                    <div class="carrossel-content">
-                        <h2>Título slide 4</h2>
-                        <p>Breve descrição ou texto de impacto</p>
-                    </div>
+                <picture class="slide-image">
+                    <source media="(max-width: 480px)" srcset="assets/imgs/cel/03.webp">
+                    <source media="(max-width: 1024px)" srcset="assets/imgs/wide/03.webp">
+                    <img src="assets/imgs/wide/03.webp" alt="Destaque 03">
+                </picture>
+                <div class="overlay"></div>
+                <div class="carrossel-content">
+                    <h2>Título do Slide 03</h2>
+                    <span>Informação relevante do terceiro destaque</span>
                 </div>
             </article>
-            <!--slide 5 -->
+
+            <!-- SLIDE 04 -->
             <article class="slide">
-                <img src="assets/imgs/05.webp" alt="descrição da imagem 1"> <!-- alterar depois que tiver as imagens corretas-->
-                <div class="overlay">
-                    <div class="carrossel-content">
-                        <h2>Título slide 5</h2>
-                        <p>Breve descrição ou texto de impacto</p>
-                    </div>
+                <picture class="slide-image">
+                    <source media="(max-width: 480px)" srcset="assets/imgs/cel/04.webp">
+                    <source media="(max-width: 1024px)" srcset="assets/imgs/wide/04.webp">
+                    <img src="assets/imgs/wide/04.webp" alt="Destaque 04">
+                </picture>
+                <div class="overlay"></div>
+                <div class="carrossel-content">
+                    <h2>Título do Slide 04</h2>
+                    <span>Texto de apoio para o quarto slide</span>
                 </div>
             </article>
+
+            <!-- SLIDE 05 -->
+            <article class="slide">
+                <picture class="slide-image">
+                    <source media="(max-width: 480px)" srcset="assets/imgs/cel/05.webp">
+                    <source media="(max-width: 1024px)" srcset="assets/imgs/wide/05.webp">
+                    <img src="assets/imgs/wide/05.webp" alt="Destaque 05">
+                </picture>
+                <div class="overlay"></div>
+                <div class="carrossel-content">
+                    <h2>Título do Slide 05</h2>
+                    <span>Frase de encerramento da sequência</span>
+                </div>
+            </article>
+
+            <!-- CLONE DO PRIMEIRO (Slide 01) -->
+            <article class="slide clone">
+                <picture class="slide-image">
+                    <source media="(max-width: 480px)" srcset="assets/imgs/cel/01.webp">
+                    <source media="(max-width: 1024px)" srcset="assets/imgs/wide/01.webp">
+                    <img src="assets/imgs/wide/01.webp" alt="Destaque 01">
+                </picture>
+                <div class="overlay"></div>
+                <div class="carrossel-content">
+                    <h2>Título do Slide 01</h2>
+                    <span>Frase de informação ou destaque importante</span>
+                </div>
+            </article>
+
         </div>
-    </section>
-    <div class="restante"></div>
+
+        <!-- Controles -->
+        <button class="nav-btn prev" aria-label="Anterior">&#10094;</button>
+        <button class="nav-btn next" aria-label="Próximo">&#10095;</button>
+
+        <!-- Indicadores -->
+        <div class="indicators">
+            <span class="bullet active"></span>
+            <span class="bullet"></span>
+            <span class="bullet"></span>
+            <span class="bullet"></span>
+            <span class="bullet"></span>
+        </div>
+    </main>
+
+    <script src="assets/js/carrossel.js"></script>
 </body>
 </html>

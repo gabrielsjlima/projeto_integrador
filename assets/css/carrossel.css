@@ -1,73 +1,302 @@
-*{ /*reset*/
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-header{
-    background-color: red;
-    height: 12vh;
-}
-.restante{
-    background-color: green;
-    height: 800px;
+/* Reset Básico */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --header-height: 12vh;
+  --carrossel-height: 88vh;
 }
 
-.track{
+/* Layout Principal em Grid */
+.main-grid {
+  display: grid;
+  grid-template-rows: var(--header-height) var(--carrossel-height);
+  width: 100%;
+  min-height: 100vh;
+}
+
+.temp-header {
+  background-color: #00FF00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  z-index: 10;
+}
+
+/* Container Carrossel */
+.carrossel {
+  position: relative;
+  overflow: hidden;
+  background-color: #111;
+}
+
+.track {
     display: flex;
-    overflow-x: auto;
-    scroll-snap-type: mandatory;
-}
-.slide{
-    flex: 0 0 100vw; /*ocupa a tela toda */
-    height: 88vh;
-    display: grid;
-    grid-template-areas: "stack"; /*área única */
-    scroll-snap-align: center;
-}
-.slide img, .slide .overlay{
-    grid-area: stack; /*faz ocupar a mesma área, um sob o outro */
-    width: 100%;
     height: 100%;
-    object-fit: cover;
-}
-.overlay{
-    display: grid;
-    /*mobile: texto embaixo e gradiente escuro embaixo*/
-    align-content: end;
-    padding: 20px;
-    background: linear-gradient(to top, rgba(0,0,0,0.99)0%, transparent 60%);
-    color: #FFF;
-    transition: all 0.5s ease;
+    /* Melhora a performance de renderização durante o movimento NÃO FUNCIONA BEM SEM*/
+    will-change: transform; 
 }
 
-/* quando tela for larga: desktop ou mobile paisagem */
-@media (min-width: 768px){
-    .overlay{
-        align-content: center;
-        justify-content: start;
-        padding: 5%;
-        background: linear-gradient(to right, rgba(0,0,0,0.99)0%, transparent 60%);
-    }
-    .carrossel-content{
-        max-width: 400px;
-    }
-
+/* Slide com Grid Stack */
+.slide {
+  flex: 0 0 100%;
+  height: 100%;
+  display: grid;
+  grid-template-areas: "stack";
 }
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+
+.slide {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.slide-image, .overlay, .carrossel-content {
+  grid-area: stack;
+  width: 100%;
+  height: 100%;
+}
+
+.slide-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Overlay Dinâmico */
+.overlay {
+  z-index: 1;
+  /* Mobile: Gradiente de baixo para cima */
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.slide.active .overlay {
+  opacity: 1;
+}
+
+/* Conteúdo e Texto */
+.carrossel-content {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 10% 15% 10%;
+  color: white;
+  text-align: center;
+}
+
+.carrossel-content h2, .carrossel-content span {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.slide.active .carrossel-content h2 { opacity: 1; transform: translateY(0); transition-delay: 0.3s; }
+.slide.active .carrossel-content span { opacity: 1; transform: translateY(0); transition-delay: 0.5s; }
+
+/* Botões */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 1.5rem 0.8rem;
+  cursor: pointer;
+  z-index: 5;
+}
+.prev { left: 0; }
+.next { right: 0; }
+
+.indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 5;
+}
+
+.bullet {
+  width: 10px;
+  height: 10px;
+  background: rgba(255,255,255,0.4);
+  border-radius: 50%;
+  transition: 0.3s;
+}
+.bullet.active { background: white; transform: scale(1.2); }
+
+/* --- Tablet e Desktop --- */
+@media (min-width: 481px) {
+  .overlay {
+    /* Desktop: Gradiente da esquerda para direita */
+    background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, transparent 70%);
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  .carrossel-content {
+    text-align: left;
+    justify-content: center;
+    padding-left: 10%;
   }
+  .carrossel-content h2 { font-size: 3.5rem; }
 }
 
-.slide .carrossel-content h2 {
-  animation: fadeInUp 0.8s ease forwards;
+/* --- iPhone SE (Telas Curtas) --- */
+@media only screen and (max-width: 375px) and (max-height: 670px) {
+  .carrossel-content { padding-bottom: 50px; }
+  .carrossel-content h2 { font-size: 1.6rem; }
+}/* Reset Básico */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --header-height: 12vh;
+  --carrossel-height: 88vh;
 }
 
-.slide .carrossel-content p {
-  animation: fadeInUp 0.8s ease forwards 0.2s; /* Delay de 0.2s para o texto */
+/* Layout Principal em Grid */
+.main-grid {
+  display: grid;
+  grid-template-rows: var(--header-height) var(--carrossel-height);
+  width: 100%;
+  min-height: 100vh;
+}
+
+.temp-header {
+  background-color: #00FF00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  z-index: 10;
+}
+
+/* Container Carrossel */
+.carrossel {
+  position: relative;
+  overflow: hidden;
+  background-color: #111;
+}
+
+.track {
+  display: flex;
+  height: 100%;
+  will-change: transform;
+  /* Transição aplicada via JS para controle de loop */
+}
+
+/* Slide com Grid Stack */
+.slide {
+  flex: 0 0 100%;
+  height: 100%;
+  display: grid;
+  grid-template-areas: "stack";
+}
+
+.slide-image, .overlay, .carrossel-content {
+  grid-area: stack;
+  width: 100%;
+  height: 100%;
+}
+
+.slide-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Overlay Dinâmico */
+.overlay {
+  z-index: 1;
+  /* Mobile: Gradiente de baixo para cima */
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.slide.active .overlay {
+  opacity: 1;
+}
+
+/* Conteúdo e Texto */
+.carrossel-content {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 10% 15% 10%;
+  color: white;
+  text-align: center;
+}
+
+.carrossel-content h2, .carrossel-content span {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.slide.active .carrossel-content h2 { opacity: 1; transform: translateY(0); transition-delay: 0.3s; }
+.slide.active .carrossel-content span { opacity: 1; transform: translateY(0); transition-delay: 0.5s; }
+
+/* Botões */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 1.5rem 0.8rem;
+  cursor: pointer;
+  z-index: 5;
+}
+.prev { left: 0; }
+.next { right: 0; }
+
+.indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 5;
+}
+
+.bullet {
+  width: 10px;
+  height: 10px;
+  background: rgba(255,255,255,0.4);
+  border-radius: 50%;
+  transition: 0.3s;
+}
+.bullet.active { background: white; transform: scale(1.2); }
+
+.slide.clone .overlay {
+    transition: none !important;
+}
+
+/* --- Tablet e Desktop --- */
+@media (min-width: 481px) {
+  .overlay {
+    /* Desktop: Gradiente da esquerda para direita */
+    background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, transparent 70%);
+  }
+  .carrossel-content {
+    text-align: left;
+    justify-content: center;
+    padding-left: 10%;
+  }
+  .carrossel-content h2 { font-size: 3.5rem; }
+}
+
+/* --- iPhone SE (Telas Curtas) --- */
+@media only screen and (max-width: 375px) and (max-height: 670px) {
+  .carrossel-content { padding-bottom: 50px; }
+  .carrossel-content h2 { font-size: 1.6rem; }
 }
