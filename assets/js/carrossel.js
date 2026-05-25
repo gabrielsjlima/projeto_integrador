@@ -1,101 +1,114 @@
-const track = document.querySelector('.track');
+// ===== SELEÇÃO DE ELEMENTOS =====
+const trilhaSlides = document.getElementById('trilha-slides');
+const btnAnterior = document.getElementById('btn-anterior');
+const btnProximo = document.getElementById('btn-proximo');
+const indicadoresContainer = document.getElementById('indicadores');
 const slides = document.querySelectorAll('.slide');
-const nextBtn = document.querySelector('.next');
-const prevBtn = document.querySelector('.prev');
-const bullets = document.querySelectorAll('.bullet');
 
-let counter = 1; // 0 é o último clone
-const size = 100;
+let slideAtual = 0;
+const totalSlides = slides.length;
+let intervaloAuto; // Para autoplay
 
-// Inicializa a posição sem animação
-track.style.transform = `translateX(${-size * counter}%)`;
+let indicadores; 
 
-function moveNext() {
-    if (counter >= slides.length - 1) return;
-    counter++;
-    track.style.transition = "transform 0.6s ease-in-out";
-    track.style.transform = `translateX(${-size * counter}%)`;
-    updateUI();
+// 2. Função de criação
+function criarIndicadores() {
+  // Limpa qualquer bolinha pré-existente (segurança)
+  indicadoresContainer.innerHTML = '';
+  
+  slides.forEach((_, index) => {
+    const bolinha = document.createElement('span');
+    bolinha.classList.add('indicador');
+    
+    // Clique na bolinha
+    bolinha.addEventListener('click', () => {
+      irParaSlide(index);
+      reiniciarAutoplay(); // Se for usar autoplay depois
+    });
+    
+    indicadoresContainer.appendChild(bolinha);
+  });
+
+  indicadores = document.querySelectorAll('.indicador');
+  
+  // primeiro bullet começa ativa visualmente
+  if (indicadores.length > 0) {
+    indicadores[0].classList.add('ativo');
+  }
 }
 
-function movePrev() {
-    if (counter <= 0) return;
-    counter--;
-    track.style.transition = "transform 0.6s ease-in-out";
-    track.style.transform = `translateX(${-size * counter}%)`;
-    updateUI();
+// atualiza as bolinhas, caso o usuario clique nos botões
+function irParaSlide(index) {
+  if ((slideAtual === totalSlides - 1 && index === 0) || (slideAtual === 0 && index === totalSlides - 1)) {
+    trilhaSlides.style.transition = 'transform 4s cubic-bezier(0.645, 0.045, 0.355, 1)';
+  } else {
+    // Limpa a propriedade em linha para que o navegador use o padrão do CSS (0.8s)
+    trilhaSlides.style.transition = '';
+  }
+
+  slideAtual = index;
+  
+  // Move a trilha
+  trilhaSlides.style.transform = `translateX(-${slideAtual * 100}%)`;
+  
+  // Atualiza slides (animação do texto)
+  slides.forEach(s => s.classList.remove('ativo'));
+  slides[slideAtual].classList.add('ativo');
+  
+  //INCROBIZAÇÃO DOS BULLETS
+  indicadores.forEach((ind, i) => {
+    // toggle(className, condition) adiciona se true, remove se false
+    ind.classList.toggle('ativo', i === slideAtual);
+  });
 }
 
-// quando a transição termina, verifica se é em um clone
-track.addEventListener('transitionend', () => {
-    if (slides[counter].classList.contains('clone')) {
-        track.style.transition = "none"; // Remove animação
-        if (slides[counter].innerHTML.includes("Slide 01")) {
-            counter = 1; // Volta para o slide 1
-        } else {
-            counter = slides.length - 2; // Vai para o slide 5
-        }
-        track.style.transform = `translateX(${-size * counter}%)`;
+//  BOTÃO PRÓXIMO 
+btnProximo.addEventListener('click', () => {
+  let proximoSlide = slideAtual + 1;
+  if (proximoSlide >= totalSlides) {
+    proximoSlide = 0; // Loop: volta pro primeiro
+  }
+  irParaSlide(proximoSlide);
+  reiniciarAutoplay();
+});
+
+//  BOTÃO ANTERIOR 
+btnAnterior.addEventListener('click', () => {
+  let slideAnterior = slideAtual - 1;
+  if (slideAnterior < 0) {
+    slideAnterior = totalSlides - 1; // Loop: vai pro último
+  }
+  irParaSlide(slideAnterior);
+  reiniciarAutoplay();
+});
+
+//  AUTOPLAY
+function iniciarAutoplay() {
+  intervaloAuto = setInterval(() => {
+    let proximoSlide = slideAtual + 1;
+    if (proximoSlide >= totalSlides) {
+      proximoSlide = 0;
     }
+    irParaSlide(proximoSlide);
+  }, 5000); // Muda a cada 5 segundos (5000ms)
+}
+
+function reiniciarAutoplay() {
+  clearInterval(intervaloAuto);
+  iniciarAutoplay();
+}
+
+//  PAUSAR AUTOPLAY AO PASSAR O MOUSE 
+const container = document.getElementById('carrossel-container');
+container.addEventListener('mouseenter', () => {
+  clearInterval(intervaloAuto);
 });
 
-function updateUI() {
-    // 1. Identifica qual o índice visual (0 a 4) para os bullets
-    let bulletIndex = counter - 1;
-    if (counter === 0) bulletIndex = bullets.length - 1; // Se estiver no clone do início, bullet 5
-    if (counter === slides.length - 1) bulletIndex = 0;   // Se estiver no clone do fim, bullet 1
-
-    slides.forEach((slide, i) => {
-        // Sincronização:
-        let isCurrent = (i === counter);
-        // Se for Clone do Slide 01 (último), ativa o Slide 01 (índice 1)
-        if (counter === slides.length - 1 && i === 1) isCurrent = true;
-        
-        // Se eu for Clone do Slide 05 (primeiro), ativa o Slide 05 (índice length - 2)
-        if (counter === 0 && i === slides.length - 2) isCurrent = true;
-
-        slide.classList.toggle('active', isCurrent);
-    });
-
-    // Atualiza os bullets
-    bullets.forEach((bullet, i) => {
-        bullet.classList.toggle('active', i === bulletIndex);
-    });
-}
-
-nextBtn.addEventListener('click', () => {
-    moveNext();
-    resetAutoSlide(); // Avisa ao cronômetro para recomeçar
+container.addEventListener('mouseleave', () => {
+  iniciarAutoplay();
 });
 
-prevBtn.addEventListener('click', () => {
-    movePrev();
-    resetAutoSlide(); // Avisa ao cronômetro para recomeçar
-});
-
-/* --- AUTOPLAY (10 SEGUNDOS) --- */
-let autoPlayTimer;
-
-function startAutoSlide() {
-    stopAutoSlide(); // Previne múltiplos intervalos ativos
-    autoPlayTimer = setInterval(() => {
-        moveNext();
-    }, 10000); 
-}
-
-function stopAutoSlide() {
-    clearInterval(autoPlayTimer);
-}
-
-function resetAutoSlide() {
-    stopAutoSlide();
-    startAutoSlide();
-}
-
-//início
-startAutoSlide();
-
-// Pausa o tempo se o usuário passar o mouse sobre o carrossel
-const carouselContainer = document.querySelector('.carrossel');
-carouselContainer.addEventListener('mouseenter', stopAutoSlide);
-carouselContainer.addEventListener('mouseleave', startAutoSlide);
+//  INICIALIZAÇÃO
+criarIndicadores();
+irParaSlide(0);
+iniciarAutoplay(); // Inicia o autoplay
