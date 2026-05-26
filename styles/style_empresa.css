@@ -27,11 +27,7 @@
     margin-top: 3px;
 }
 
-#descricao h1 {
-    color: white;
-    margin-top: 15px;
-}
-
+#descricao h1,
 #descricao p {
     color: white;
     margin-top: 15px;
@@ -39,7 +35,6 @@
 
 #icons-empresa {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 20px 50px;
@@ -68,7 +63,6 @@
 
 @media (min-width: 1024px) {
     #empresa {
-        display: flex;
         flex-direction: row;
     }
 
