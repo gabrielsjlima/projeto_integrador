@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/css/gradiente.css">
+  <link rel="stylesheet" href="assets/css/root.css">
+  <link rel="stylesheet" href="assets/css/slide.css">
+  <link rel="stylesheet" href="assets/css/texto.css">
+  <link rel="stylesheet" href="assets/css/buttons.css">
+  <link rel="stylesheet" href="assets/css/swipe-carrossel.css">
+  <title>Carrossel</title>  
+</head>
+<body>
+
+  <section id="secao-hero">
+
+    <!-- Espaço reservado para o header (feito por outra pessoa) -->
+    <div id="reserva-header">
+      <span style="color: white;">Aqui vem a parte da Júlia</span>
+    </div>
+
+    <!-- container do carrossel -->
+    <div id="carrossel-container">
+      
+      <!-- Trilha: contém os slides lado a lado -->
+      <div id="trilha-slides">
+
+        <!-- SLIDE 1 -->
+        <div class="slide">
+          <!-- Texto animado sobre o carrossel -->
+            <div class="slide-texto">
+            <h1 class="titulo-imagem">Manutenção programada</h1> <!--Aqui é de acordo com o slide-->
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In nemo odio libero? Delectus...</p>
+          </div>
+          <picture>
+            <!-- wide: telas largas (≥ 1200px) -->
+            <source media="(min-width: 1200px)" srcset="assets/imgs/wide/01.webp" />
+            <!-- tablet: telas médias (≥ 768px) -->
+            <source media="(min-width: 658px)"  srcset="assets/imgs/tablet/01.webp" />
+            <!-- mobile: padrão (menor que 768px) -->
+            <img class="slide-imagem"
+                 src="assets/imgs/mobile/01.webp"
+                 alt="Imagem 1 do carrossel"/>
+          </picture>
+        </div>
+
+        <!-- SLIDE 2 -->
+        <div class="slide">
+          <!-- Texto animado sobre o carrossel -->
+            <div class="slide-texto">
+            <h1 class="titulo-imagem">Grandes distâncias</h1> <!--Aqui é de acordo com o slide-->
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In nemo odio libero? Delectus...</p>
+          </div>
+          <picture>
+            <source media="(min-width: 1200px)" srcset="assets/imgs/wide/02.webp" />
+            <source media="(min-width: 768px)"  srcset="assets/imgs/tablet/02.webp" />
+            <img class="slide-imagem"
+                 src="assets/imgs/mobile/02.webp"
+                 alt="Imagem 2 do carrossel"
+                 loading="lazy" />
+          </picture>
+        </div>
+
+        <!-- SLIDE 3 -->
+        <div class="slide">
+          <!-- Texto animado sobre o carrossel -->
+            <div class="slide-texto">
+            <h1 class="titulo-imagem">Retífica de motores</h1> <!--Aqui é de acordo com o slide-->
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In nemo odio libero? Delectus...</p>
+          </div>
+          <picture>
+            <source media="(min-width: 1200px)" srcset="assets/imgs/wide/03.webp" />
+            <source media="(min-width: 768px)"  srcset="assets/imgs/tablet/03.webp" />
+            <img class="slide-imagem"
+                 src="assets/imgs/mobile/03.webp"
+                 alt="Imagem 3 do carrossel"
+                 loading="lazy" />
+          </picture>
+        </div>
+
+        <!-- SLIDE 4 -->
+        <div class="slide">
+          <!-- Texto animado sobre o carrossel -->
+            <div class="slide-texto">
+            <h1 class="titulo-imagem">Título do slide 4</h1> <!--Aqui é de acordo com o slide-->
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In nemo odio libero? Delectus...</p>
+          </div>
+          <picture>
+            <source media="(min-width: 1200px)" srcset="assets/imgs/wide/04.webp" />
+            <source media="(min-width: 768px)"  srcset="assets/imgs/tablet/04.webp" />
+            <img class="slide-imagem"
+                 src="assets/imgs/mobile/04.webp"
+                 alt="Imagem 4 do carrossel"
+                 loading="lazy" />
+          </picture>
+        </div>
+
+        <!-- SLIDE 5 -->
+        <div class="slide">
+          <!-- Texto animado sobre o carrossel -->
+            <div class="slide-texto">
+            <h1 class="titulo-imagem">Motores</h1> <!--Aqui é de acordo com o slide-->
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In nemo odio libero? Delectus...</p>
+          </div>
+          <picture>
+            <source media="(min-width: 1200px)" srcset="assets/imgs/wide/05.webp" />
+            <source media="(min-width: 768px)"  srcset="assets/imgs/tablet/05.webp" />
+            <img class="slide-imagem"
+                 src="assets/imgs/mobile/05.webp"
+                 alt="Imagem 5 do carrossel"
+                 loading="lazy" />
+          </picture>
+        </div>
+
+      </div>
+      <!-- /trilha-slides -->
+
+      <!-- Botão: slide anterior -->
+      <button id="btn-anterior"
+              class="btn-navegacao">
+        <!-- Seta para a esquerda em SVG -->
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2.5"
+             stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+
+      <!-- Botão: próximo slide -->
+      <button id="btn-proximo"
+              class="btn-navegacao">
+        <!-- Seta para a direita em SVG -->
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2.5"
+             stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+
+      <!-- Bolinhas indicadoras de slide (bullets) -->
+      <div id="indicadores"></div>
+
+    </div>
+    <!-- /carrossel-container -->
+
+  </section>
+  <!-- /secao-hero -->    
+   <article style="height: 100dvh; background-color: green;">
+    <section>
+      <h1>aqui será o próximo conteúdo de outro membro do grupo</h1>
+    </section>
+   </article>
+
+<script src="assets/js/carrossel-hero-bridge.js"></script>
+<script src="assets/js/carrossel.js"></script>
+<script src="assets/js/swipe-carrossel.js"></script>
+</body>
+</html>

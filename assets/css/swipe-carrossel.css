@@ -1,0 +1,10 @@
+/* Gesto horizontal: JS do carrossel. Vertical: rolagem nativa da página */
+#carrossel-container,
+#trilha-slides,
+.slide {
+  touch-action: pan-y pinch-zoom;
+}
+
+#carrossel-container {
+  overscroll-behavior-y: auto;
+}

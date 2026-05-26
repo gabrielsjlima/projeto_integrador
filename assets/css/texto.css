@@ -1,0 +1,115 @@
+.slide-texto {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    color: var(--cor-texto);
+    z-index: 2;
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55); 
+    transition: all 0.9s ease;
+}
+
+/* Título */
+.slide-texto h1 {
+    font-family: var(--fontPrim);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 8px;
+    opacity: 0;
+}
+/* texto descritivo imagens */
+.slide-texto p {
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.85); /* força o destaque no título */
+    opacity: 0;
+}
+
+/*telas pequenas no modo retrato*/
+@media (max-width: 767px) {
+    .slide-texto {
+        bottom: 80px; 
+        left: 5%;
+        right: 5%;
+        width: 90%;
+        text-align: center;
+        align-items: center; /* Centraliza no flexbox */
+        justify-content: center;
+    }
+
+    .slide-texto h1 {
+        font-size: clamp(1.8rem, 6vw, 2.4rem); 
+    }
+
+    .slide-texto p {
+        font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+        max-width: 400px;
+    }
+}
+
+@media (min-width: 767px) {
+    .slide-texto {
+        top: calc(var(--texto-y) - 8%);
+        left: calc(var(--texto-x) + 4%);
+        text-align: left;
+        align-items: flex-start;
+        max-width: 55%;
+    }
+
+    .slide-texto h1 {
+        font-size: clamp(1.5rem, 4vw, 4.5rem);
+    }
+
+    .slide-texto p {
+        font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+    }
+}
+@media (min-width:1000px){
+    .slide-texto {
+        top: calc(var(--texto-y) + 10%);
+        text-align: left;
+        align-items: flex-start;
+        max-width: 55%;
+    }
+}
+
+@keyframes desce-titulo {
+    from {
+        transform: translateY(-220px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes descricao {
+    from {
+        transform: translateX(330px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Ativação das animações via JS */
+.slide.ativo .slide-texto h1 {
+    animation: desce-titulo var(--anim-texto) var(--easing) forwards;
+}
+
+.slide.ativo .slide-texto p {
+    animation: descricao var(--anim-texto) var(--easing) forwards;
+    animation-delay: var(--delay-texto);
+}
+
+@media (min-width: 992px) and (min-height: 500px) {
+  .slide-texto h1{
+        font-size: clamp(2.5em, 3.5vh, 2.5em);
+  }
+  .slide-texto p{
+    font-size: clamp(1.5em, 2.5vh, 1.5em);
+  }
+}

@@ -1,0 +1,166 @@
+#reserva-header{
+    height: var(--tam-header);
+    background-color: red;
+    flex-shrink: 0;
+}
+
+#secao-hero{
+    width: 100%;
+    height: 100svh;
+    display: flex;
+    flex-direction: column; 
+    position: relative;
+    background-color: #000; /* caso haja recalculo de layout, não mostrar faix branca */
+}
+#carrossel-container{
+    position: relative; /* os filhos desse item devem ter postion:absolute */
+    display: block;
+    height: calc(100svh - var(--tam-header)); /* ao alterar o valor aqui, verifique se trata-se da mesma medida */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* oculta as imagens à direita do carrossel */
+    overscroll-behavior: none; /* previne o efeito de "rebote" ao chegar no final do carrossel em mobile */
+    /* instruções para swipe em mobiles */
+    /* display: flex;
+    overflow-x: auto;              /* Ativa o arrastar com o dedo */
+    /*scroll-snap-type: x mandatory;    Ativa o efeito de "ímã" nos slides */
+    /*-webkit-overflow-scrolling: touch;
+
+    transform: none; não pode haver transform para não quebrar o layout */
+
+}
+    
+#trilha-slides{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    z-index: 2;    
+    transition: transform var(--anim-slide) var(--easing);
+    transform: translateX(0); /* mostra slide 1 no javascript precisa aumentar de 100 em 100% até 400%*/    
+}
+.slide{
+    flex-shrink: 0; /*imoede que o slide encolha para caber mais de um */
+    min-width: 100%; /* ocupa o espaço do container */
+    height: 100%;
+    position: relative;
+    overflow: hidden; /*prevenir estouro de imagem pela diferença de escla da animação */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* instruções para swipe em mobile */
+    /* flex: 0 0 100%;
+    scroll-snap-align: start; */
+}
+.slide picture{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /*mantém proporção*/
+    display: block;
+}
+.slide-imagem{
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform var(--anim-slide) var(--easing);
+    transform: scale(1.05);
+}
+
+/* diminui a escala para efeito parallax */
+.slide.ativo .slide-imagem {
+    transform: scale(1);
+}
+
+#indicadores {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 3;
+}
+
+.indicador {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.indicador:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+  transform: scale(1.2);
+}
+
+.indicador.ativo {
+  background-color: #fff;
+  transform: scale(1.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+
+
+@keyframes desce-titulo{
+  from{
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes descricao{
+  from{
+    transform: translateX(-40px);
+    opacity: 0;
+  }
+  to{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide.ativo .slide-texto h1{
+  animation: desce-titulo var(--anim-texto) var(--easing) forwards;
+}
+
+.slide.ativo .slide-texto p{
+  animation: descricao var(--anim-texto) var(--easing) forwards;
+  animation-delay: var(--delay-texto);
+}
+@media (orientation: landscape){
+    .slide-imagem{
+        object-position: 50% 50%;
+    }
+}
+@media (orientation: portrait){
+    .slide-imagem{
+        object-position: 50% 50%;
+    }
+    #reserva-header{
+        height: 8svh;
+    }
+}
+/* @media (min-width: 992px) and (min-height: 500px) {
+  #slide-container{ */
+    /* overflow-x: visible;       Desativa a rolagem por arrasto */
+    /* overflow: hidden;
+    position: relative; */
+    /* scroll-snap-type: none;     Desativa o snap do css */
+ /*  }
+  #trilhas-slide{
+    display: flex;
+    width: 100%;
+    position: relative;
+  }
+  .slide{
+    scroll-snap-align: unset;   /* premite ao javascript usar o transformX */
+  /* } */
