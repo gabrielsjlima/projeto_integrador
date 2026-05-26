@@ -62,11 +62,14 @@
     font-size: 45px;
 }
 
+#imagem {
+    display: none;
+}
+
 @media (min-width: 1024px) {
     #empresa {
         display: flex;
         flex-direction: row;
-        height: 100vh;
     }
 
     #lado-esquerdo {
@@ -81,16 +84,17 @@
     }
 
     #descricao h1 {
-        font-size: 40px;
+        font-size: 35px;
     }
 
     #descricao p {
         line-height: 1.8;
-        font-size: 18px;
+        font-size: 16px;
     }
 
     #imagem {
-    position: relative;
+        display: block;
+        position: relative;
     }
 
     #imagem::before {
@@ -105,7 +109,7 @@
     }
 
     #imagem img {
-        width: 55vw;
+        width: 50vw;
         height: 100vh;
         object-fit: cover;
     }
