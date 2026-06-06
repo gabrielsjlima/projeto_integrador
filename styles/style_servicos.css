@@ -1,0 +1,150 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#container-servicos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    background-color: aliceblue;
+}
+
+#container-servicos h1{
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+
+#container-servicos hr {
+    width: 40px;
+    height: 3px;
+    background-color: red;
+    border: 0;
+    margin-bottom: 20px;
+}
+
+#container-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.servicos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 10px;
+    background-color: white;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.img-wrapper img {
+    width: 170px;
+    height: 140px;
+    border-radius: 10px;
+}
+
+.img-wrapper i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: white;
+    border: 1px solid white;
+    background-color: red;
+    position: absolute;
+    bottom: 50px;
+    right: -25px;
+    z-index: 1;
+}
+
+.descricao-servicos {
+    padding: 15px;
+    margin-left: 20px;
+}
+
+.descricao-servicos h2 {
+    text-transform: uppercase;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.descricao-servicos p {
+    font-size: 14px;
+    color: gray;
+}
+
+@media (min-width: 1024px) {
+    #container-servicos h1 {
+        font-size: 33px;
+    }
+
+    #container-servicos hr {
+        margin-bottom: 30px;
+    }
+    
+    #container-cards {
+        flex-direction: row;
+        justify-content: center;
+        width: 100vw;
+    }
+
+    .servicos {
+        flex-direction: column;
+        margin: 0px 20px;
+        width: 300px;
+        height: 450px;
+        border: 1px solid gray;
+    }
+
+    .img-wrapper {
+        flex-direction: column;
+    }
+
+    .img-wrapper img {
+        width: 100%;
+        height: 200px;
+        border-radius: 10px 10px 0px 0px;
+    }
+
+    .img-wrapper i {
+        bottom: -25px;
+        right: 110px;
+        width: 60px;
+        height: 60px;
+        font-size: 25px;
+    }
+
+    .descricao-servicos h2 {
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-top: 30px;
+        margin-bottom: 0px;
+        text-align: center;
+        line-height: 1.5;
+    }
+
+    .descricao-servicos p {
+        font-size: 16px;
+        margin-top: 10px;
+        line-height: 1.5;
+        text-align: center;
+    }
+}
