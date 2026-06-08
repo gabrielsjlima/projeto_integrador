@@ -64,6 +64,7 @@
     color: white;
     text-transform: uppercase;
     align-self: center;
+    text-decoration: none;
 }
 
 #info-empresa {
@@ -133,7 +134,7 @@
     line-height: 1.6;
 }
 
-#container-frase button {
+#container-frase a {
     background-color: brown;
     border: 1px solid rgba(255, 255, 255, 0.5);
     color: white;
@@ -141,6 +142,7 @@
     padding: 15px 30px;
     border-radius: 5px;
     text-transform: uppercase;
+    text-decoration: none;
 }
 
 @media (min-width: 1024px) {
