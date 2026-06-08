@@ -1,5 +1,6 @@
 const perguntas = document.querySelectorAll('.perguntas');
 
+// essa função inverte o ícone das perguntas do faq
 perguntas.forEach(function(pergunta) {
     pergunta.addEventListener('click', function() {
         const resposta = pergunta.nextElementSibling;
@@ -17,6 +18,7 @@ perguntas.forEach(function(pergunta) {
 function ajustarTexto() {
     const paragrafos = document.querySelectorAll('.descricao-servicos p');
     
+    // esse if altera a descrição dos serviços quando a tela for redimensionada
     if (window.innerWidth >= 1024) {
         paragrafos[0].textContent = 'Nossa equipe realiza manutenção preventiva e corretiva em motores a diesel, garantindo desempenho, economia e maior vida útil.';
         paragrafos[1].textContent = 'Executamos a troca e reparo de embreagens e câmbios, com peças de qualidade e agilidade no atendimento.';
