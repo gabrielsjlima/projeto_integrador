@@ -13,7 +13,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: lightgray;
+    background-color: #1a1a1a;
     padding: 50px;
 }
 
@@ -21,12 +21,13 @@
     text-transform: uppercase;
     font-size: 20px;
     margin-bottom: 10px;
+    color: #f5f5f5;
 }
 
 #faqs hr {
     width: 40px;
     height: 3px;
-    background-color: red;
+    background-color: #cc1f1f;
     border: 0;
     margin-bottom: 20px;
 }
@@ -36,11 +37,12 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px 15px;
+    color: #f5f5f5;
     width: 100%;
     margin-bottom: 20px;
-    background-color: white;
+    background-color: #1a1a1a;
     border-radius: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.2)
+    border: 1px solid rgba(255, 255, 255, 0.2)
 }
 
 #faqs .perguntas i {
@@ -52,16 +54,16 @@
     padding: 0px 15px 15px 15px;
     font-size: 14px;
     line-height: 1.6;
-    color: #444;
+    color: #f5f5f5;
 }
 
 #faqs #orcamento {
-    background-color: brown;
+    background-color: #cc1f1f;
     padding: 15px 15px;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     margin-top: 20px;
-    color: white;
+    color: #ffffff;
     text-transform: uppercase;
     align-self: center;
     text-decoration: none;
@@ -71,7 +73,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: gray;
+    background-color: #f5f5f5;
     padding: 50px;
 }
 
@@ -84,7 +86,7 @@
 #info-empresa hr {
     width: 40px;
     height: 3px;
-    background-color: red;
+    background-color: #cc1f1f;
     border: 0;
     margin-bottom: 20px;
 }
@@ -105,7 +107,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: brown;
+    background-color: #cc1f1f;
     padding-bottom: 20px;
 }
 
@@ -120,7 +122,7 @@
 }
 
 #frase {
-    color: white;
+    color: #ffffff;
     padding: 25px;
 }
 
@@ -135,9 +137,9 @@
 }
 
 #container-frase a {
-    background-color: brown;
+    background-color: #cc1f1f;
     border: 1px solid rgba(255, 255, 255, 0.5);
-    color: white;
+    color: #ffffff;
     font-size: 16px;
     padding: 15px 30px;
     border-radius: 5px;
