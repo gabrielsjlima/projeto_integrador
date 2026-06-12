@@ -9,6 +9,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    min-height: 70svh;
 }
 
 #descricao {
@@ -24,12 +25,14 @@
 
 #descricao hr {
     width: 30px;
+    height: 3px;
     background-color: #cc1f1f;
+    border: none;
     margin-top: 3px;
 }
 
 #descricao h1,
-#descricao p {
+#descricao p:not(#sobre-nos) {
     color: #ffffff;
     margin-top: 15px;
 }

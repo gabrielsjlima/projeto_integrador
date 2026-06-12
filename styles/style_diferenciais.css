@@ -12,6 +12,7 @@
     justify-content: center;
     background-color: #ffffff;
     padding: 20px;
+    min-height: 70svh;
 }
 
 #diferenciais h1 {

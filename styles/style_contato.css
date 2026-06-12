@@ -153,7 +153,7 @@
         display: flex;
         flex-wrap: wrap;
         align-items: stretch;
-        height: 100vh;
+        min-height: 70svh;
     }
 
     #faqs {
