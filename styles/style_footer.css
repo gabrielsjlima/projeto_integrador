@@ -1,0 +1,73 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#footer {
+    background-color: #1a1a1a;
+    padding: 40px 30px;
+}
+
+#horario-funcionamento h1 {
+    margin-top: 30px;
+    text-transform: uppercase;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+#horario-funcionamento p {
+    margin-top: 15px;
+    color: #ffffff;
+    font-size: 12px;
+    line-height: 2.0;
+}
+
+#formas-contato h1{
+    margin-top: 30px;
+    text-transform: uppercase;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+#formas-contato p {
+    margin-top: 15px;
+    color: #ffffff;
+    font-size: 12px;
+}
+
+#formas-pagamento h1{
+    margin-top: 30px;
+    text-transform: uppercase;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+#imagens-pagamento {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#imagens-pagamento img {
+    width: 120px;
+    height: 80px;
+}
+
+@media (min-width: 1024px) {
+    #footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    #horario-funcionamento h1,
+    #formas-contato h1,
+    #formas-pagamento h1 {
+        font-size: 16px;
+    }
+
+    #horario-funcionamento p,
+    #formas-contato p,
+    #formas-pagamento p {
+        font-size: 14px;
+    }
+}
