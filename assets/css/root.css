@@ -32,6 +32,36 @@
     --texto-x: 5%; /* margem esquerda do texto */
     --easing: cubic-bezier(0.645, 0.045, 0.355, 1); /* efeito elástico/suave no texto e slide */
     --fontPrim: Montserrat, sans-serif; /* fonte primária */
+
+    /* Tipografia responsiva da seção de contato */
+    --fs-titulo: 20px;   /* h1 do #faqs e #info-empresa */
+    --fs-corpo: 14px;    /* .perguntas, .descricoes e botão #orcamento */
+
+    /* Espaçamentos responsivos */
+    --mb-hr-faqs: 20px;     /* hr dentro de #faqs */
+    --mb-hr-empresa: 20px;  /* hr dentro de #info-empresa */
+    --mt-orcamento: 20px;   /* margem superior do botão #orcamento */
+    --mb-descricoes: 20px;  /* margem inferior de .descricoes */
+
+    /* Dimensões do iframe */
+    --iframe-max-width: 380px;
+    --iframe-height: 300px;
+}
+
+/* Ajustes responsivos da seção de contato */
+@media (min-width: 1024px) {
+    :root {
+        --fs-titulo: 25px;
+        --fs-corpo: 16px;
+
+        --mb-hr-faqs: 40px;
+        --mb-hr-empresa: 50px;
+        --mt-orcamento: 50px;
+        --mb-descricoes: 50px;
+
+        --iframe-max-width: 440px;
+        --iframe-height: 500px;
+    }
 }
 
 /* Media Queries para ajustar a altura do header dinamicamente */
