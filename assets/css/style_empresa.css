@@ -60,14 +60,14 @@
     #empresa {
         flex-direction: row;
         min-height: 80vh;
-        width: 100vw;
+        width: 100%;
     }
 
     #lado-esquerdo {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        width: 50vw;
+        width: 50%;
     }
 
     #sobre-nos {
@@ -94,7 +94,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 50vw;
+        width: 100%;
         height: auto;
         background: linear-gradient(to right, black 0%, transparent 40%);
         z-index: 1;
