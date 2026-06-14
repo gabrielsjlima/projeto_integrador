@@ -1,0 +1,60 @@
+/* 1. Definição das variáveis de cores e configurações globais */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+:root {
+    /* 2. Cores principais do projeto: Vermelho, Chumbo e Branco */
+    --cor-primaria: #a52a2a; /* Vermelho */
+    --cor-secundaria: #333333; /* Chumbo */
+    --cor-header: oklch(33.68% 0.00004 271.152); /* Cor do header usando oklch para melhor controle de luminosidade e saturação */
+    --cor-branca: #ffffff;
+    --cor-fundo: #f4f4f4;
+    --tom-link: #ff4e4e; /* Tom para links e elementos interativos */
+
+    /* 3. Área mínima de clique recomendada para acessibilidade */
+    --area-clicavel: 48px;
+    
+    /* 4. Altura do header definida para diferentes telas */
+    --header-mobile-retrato: 25svh;
+    --header-mobile-paisagem: 30svh;
+    --header-desktop-tablet: 35svh;
+
+    /* Variável dinâmica que será alterada via Media Queries */
+    --altura-header: var(--header-mobile-retrato);
+    
+    /* Variável para controlar o tamanho do logo no header */
+    --tamanho-logo: 100%;
+
+    /* estilos carrossel */
+
+    --cor-texto: #FFF;
+    --anim-texto: 1s; /* tempo de animação texto */
+    --anim-slide: 0.8s; /* tempo slide */
+    --delay-texto: 0.2s; /* tempo do texto na tela */
+    --tam-header: 15svh; /* tamanho do header de acordo com a Júlia */
+    --texto-y: 55%; /* altura do texto em relação à tela (top)*/
+    --texto-x: 5%; /* margem esquerda do texto */
+    --easing: cubic-bezier(0.645, 0.045, 0.355, 1); /* efeito elástico/suave no texto e slide */
+    --fontPrim: Montserrat, sans-serif; /* fonte primária */    
+    --fontSec: 'Inter', sans-serif; /* fonte secundária */
+
+}
+
+/* Reset básico para consistência entre navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    line-height: 1.6;
+    font-family: 'Montserrat', sans-serif !important;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+    

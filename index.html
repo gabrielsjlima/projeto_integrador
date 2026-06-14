@@ -3,12 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Diego, Júlia, Gabriel, Marcos, Mateus, Pedro">
+    <meta name="author" content="Gabriel, Mateus, Pedro Joaquim">
 <!-- nomes em ordem alfabética -->
     <title>Irmãos Berreta</title>
+    <!-- CDN ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-</head>
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/root.css">
+    <link rel="stylesheet" href="assets/css/carrossel.css">   
+    <link rel="stylesheet" href="assets/css/style_contato.css">
+    <link rel="stylesheet" href="assets/css/style_empresa.css">
+    <link rel="stylesheet" href="assets/css/style_servicos.css">
+    <link rel="stylesheet" href="assets/css/style_diferenciais.css">
+
+    <!-- script efeito acordeon -->     
+
+    <script src="assets/js/script.js" defer></script>
+</head>    
+
 <body>
-    
+    <header>
+        <div class="fixo">
+            <div class="logo" id="logo-svg">
+                <object data="assets/imgs/svgs/logoA.svg" type="image/svg+xml" width="250" height="250"></object>
+            </div>
+            <nav class="nav-links">
+                <span class="btn-fechar">&times;</span>
+                <a href="#">Serviços</a>
+                <a href="#">Empresa</a>
+                <a href="#">Diferenciais</a>
+                <a href="#">Contato</a>
+            </nav>
+            <div class="cta-container">
+                <img src="assets/imgs/svgs/hamb.svg" alt="menu" class="hamb">
+                <a href="#contato" class="btn">Orçamento</a>
+                <a href="#" class="btn-orcamento">Solicite um orçamento</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- início do main -->
+
+    <main>
+        <section id="secao-hero">
+    <!-- container do carrossel -->
+    <div id="carrossel-container">
+      
+      <!-- Trilha: contém os slides lado a lado -->
+      <div id="trilha-slides">
+
+        <!-- SLIDE 1 -->
+        <div class="slide">
+          <!-- Texto animado sobre o carrossel -->
+            <div class="slide-texto">
+            <h1 class="titulo-imagem">Manutenção programada</h1> <!--Aqui é de acordo com o slide-->
+            <p>Cuide da saúde da sua frota. Temos os melhores especialistas da região!</p>
+          </div>
+          <picture>
+            <!-- wide: telas largas (≥ 1200px) -->
+            <source media="(min-width: 1200px)" srcset="assets/imgs/carrossel/wide/01.webp" />
+            <!-- tablet: telas médias (≥ 768px) -->
+            <source media="(min-width: 658px)"  srcset="assets/imgs/carrossel/tablet/01.webp" />
+            <!-- mobile: padrão (menor que 768px) -->
+            <img class="slide-imagem"
+                 src="assets/imgs/carrossel/mobile/01.webp"
+                 alt="Imagem 1 do carrossel"/>
+          </picture>
+        </div>
+
+        <!-- SLIDE 2 -->
+        <div class="slide">
+          <!-- Texto animado sobre o carrossel -->
+            <div class="slide-texto">
+            <h1 class="titulo-imagem">Grandes distâncias</h1> <!--Aqui é de acordo com o slide-->
+            <p>Não arrisque-se em grandes distâncias sem revisão.</p>
+          </div>
+          <picture>
+            <source media="(min-width: 1200px)" srcset="assets/imgs/carrossel/wide/02.webp" />
+            <source media="(min-width: 768px)"  srcset="assets/imgs/carrossel/tablet/02.webp" />
+            <img class="slide-imagem"
+                 src="assets/imgs/carrossel/mobile/02.webp"
+                 alt="Imagem 2 do carrossel"
+                 loading="lazy" />
+          </picture>
+        </div>
+
+        <!-- SLIDE 3 -->
+        <div class="slide">
+          <!-- Texto animado sobre o carrossel -->
+            <div class="slide-texto">
+            <h1 class="titulo-imagem">Manutenção preventiva</h1> <!--Aqui é de acordo com o slide-->
+            <p>Manutenção em bombas, comandos e cilindros hidráulicos.</p>
+          </div>
+          <picture>
+            <source media="(min-width: 1200px)" srcset="assets/imgs/carrossel/wide/03.webp" />
+            <source media="(min-width: 768px)"  srcset="assets/imgs/carrossel/tablet/03.webp" />
+            <img class="slide-imagem"
+                 src="assets/imgs/carrossel/mobile/03.webp"
+                 alt="Imagem 3 do carrossel"
+                 loading="lazy" />
+          </picture>
+        </div>
+
+        <!-- SLIDE 4 -->
+        <div class="slide">
+          <!-- Texto animado sobre o carrossel -->
+            <div class="slide-texto">
+            <h1 class="titulo-imagem">Manutenção corretiva</h1> <!--Aqui é de acordo com o slide-->
+            <p>Serviços de torno, fresa e mandrilamento de componentes.</p>
+          </div>
+          <picture>
+            <source media="(min-width: 1200px)" srcset="assets/imgs/carrossel/wide/04.webp" />
+            <source media="(min-width: 768px)"  srcset="assets/imgs/carrossel/tablet/04.webp" />
+            <img class="slide-imagem"
+                 src="assets/imgs/carrossel/mobile/04.webp"
+                 alt="Imagem 4 do carrossel"
+                 loading="lazy" />
+          </picture>
+        </div>
+
+        <!-- SLIDE 5 -->
+        <div class="slide">
+          <!-- Texto animado sobre o carrossel -->
+            <div class="slide-texto">
+            <h1 class="titulo-imagem">Força e potência</h1> <!--Aqui é de acordo com o slide-->
+            <p>Potência bruta e precisão técnica é com a gente!</p>
+          </div>
+          <picture>
+            <source media="(min-width: 1200px)" srcset="assets/imgs/carrossel/wide/05.webp" />
+            <source media="(min-width: 768px)"  srcset="assets/imgs/carrossel/tablet/05.webp" />
+            <img class="slide-imagem"
+                 src="assets/imgs/carrossel/mobile/05.webp"
+                 alt="Imagem 5 do carrossel"
+                 loading="lazy" />
+          </picture>
+        </div>
+
+      </div>
+      <!-- /trilha-slides -->
+
+      <!-- Botão: slide anterior -->
+      <button id="btn-anterior"
+              class="btn-navegacao">
+        <!-- Seta para a esquerda em SVG -->        
+        <object data="assets/imgs/svgs/esq.svg" type="image/svg+xml" width="40" height="40"></object>
+      </button>
+
+      <!-- Botão: próximo slide -->
+      <button id="btn-proximo"
+              class="btn-navegacao">
+        <!-- Seta para a direita em SVG -->
+        
+        <object data="assets/imgs/svgs/dir.svg" type="image/svg+xml" width="40" height="40"></object>
+      </button>
+
+      <!-- Bolinhas indicadoras de slide (bullets) -->
+      <div id="indicadores"></div>
+
+    </div>
+    <!-- /carrossel-container -->
+
+  </section>       
+
+    </main>
+    <script src="assets/js/menu.js"></script>
+<!-- scripts do carrossel -->
+<script src="assets/js/carrossel-hero-bridge.js"></script>
+<script src="assets/js/carrossel.js"></script>
+<script src="assets/js/swipe-carrossel.js"></script>
+
 </body>
 </html>

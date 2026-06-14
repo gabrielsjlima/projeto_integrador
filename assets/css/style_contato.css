@@ -1,0 +1,218 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#contato {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+#faqs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: lightgray;
+    padding: 50px;
+}
+
+#faqs h1 {
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#faqs hr {
+    width: 40px;
+    height: 3px;
+    background-color: red;
+    border: 0;
+    margin-bottom: 20px;
+}
+
+#faqs .perguntas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 15px;
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.2)
+}
+
+#faqs .perguntas i {
+    transition: transform 0.3s ease;
+}
+
+#faqs .respostas {
+    display: none;
+    padding: 0px 15px 15px 15px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #444;
+}
+
+#faqs #orcamento {
+    background-color: brown;
+    padding: 15px 15px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    margin-top: 20px;
+    color: white;
+    text-transform: uppercase;
+    align-self: center;
+    text-decoration: none;
+}
+
+#info-empresa {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: gray;
+    padding: 50px;
+}
+
+#info-empresa h1 {
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#info-empresa hr {
+    width: 40px;
+    height: 3px;
+    background-color: red;
+    border: 0;
+    margin-bottom: 20px;
+}
+
+#info-empresa .descricoes{
+    font-size: 14px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+#info-empresa iframe {
+    max-width: 380px;
+    height: 300px;
+    align-self: center;
+}
+
+#container-frase {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: brown;
+    padding-bottom: 20px;
+}
+
+#imagem-caminhao {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#imagem-caminhao i {
+    padding: 25px;
+}
+
+#frase {
+    color: white;
+    padding: 25px;
+}
+
+#frase h1 {
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+#frase p {
+    line-height: 1.6;
+}
+
+#container-frase a {
+    background-color: brown;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    font-size: 16px;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+@media (min-width: 1024px) {
+    #contato {
+        max-width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        height: 100vh;
+    }
+
+    #faqs {
+        flex: 0.6;
+    }
+
+    #faqs h1 {
+        font-size: 25px;
+    }
+
+    #faqs hr {
+        margin-bottom: 40px;
+    }
+
+    #faqs .perguntas {
+        font-size: 18px;
+    }
+
+    #faqs #orcamento {
+        font-size: 18px;
+        margin-top: 50px;
+    }
+    
+    #info-empresa {
+        flex: 1;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    #info-empresa .descricoes-container {
+        flex: 1;             
+    }
+
+    #info-empresa h1 {
+        font-size: 25px;
+    }
+
+    #info-empresa hr{
+        margin-bottom: 50px;
+    }
+
+    #info-empresa .descricoes {
+        font-size: 20px;
+        margin-bottom: 50px;
+    }
+
+    #info-empresa iframe {
+        flex: 1;
+        max-width: 440px;
+        height: 500px;
+        align-self: center;
+    }
+
+    #container-frase {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0px 80px;
+    }
+
+    #imagem-caminhao {
+        flex: 1;
+    }
+}
