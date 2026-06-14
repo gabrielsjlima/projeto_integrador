@@ -86,9 +86,12 @@
 }
 
 @media (min-width: 1024px) {
-    #container-servicos h1 {
-        font-size: 33px;
+    #container-servicos{
+        min-height: calc(100vh - var(--altura-header));  
     }
+    #container-servicos h1 {
+        font-size: 33px;          
+    }    
 
     #container-servicos hr {
         margin-bottom: 30px;

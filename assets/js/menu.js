@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- LÓGICA DO SVG DA LOGO (link para home e reset da animação) ---
+    // --- LÓGICA DO SVG DA LOGO (Fix para Object) ---
     const logoAnimada = document.getElementById('logo-svg');
     if (logoAnimada) {
         function resetarLogo() {
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Clique para voltar ao topo/home com scroll suave
         logoAnimada.style.cursor = 'pointer';
         logoAnimada.addEventListener('click', () => {
-            scrollSuaveCustomizado('html', 1500); 
+            scrollSuaveCustomizado('html', 1200); 
         });
     }
 
@@ -69,24 +69,28 @@ document.addEventListener('DOMContentLoaded', () => {
      * @param {string} targetId - Seletor do elemento alvo (ex: '#contato' ou 'html')
      * @param {number} duracao - Duração em ms
      */
-    function scrollSuaveCustomizado(targetId, duracao = 200) {
+    function scrollSuaveCustomizado(targetId, duracao = 800) {
         const target = document.querySelector(targetId);
         if (!target) return;
 
-        // Pega a altura do header dinamicamente para compensar o scroll
         const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+        const startPosition = window.pageYOffset;
         
         const targetPosition = target === document.documentElement || target === document.body 
             ? 0 
-            : target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+            : target.getBoundingClientRect().top + startPosition - headerHeight;
 
-        const startPosition = window.pageYOffset;
         const distance = targetPosition - startPosition;
+        
+        // Se a distância for zero, não faz nada
+        if (distance === 0) return;
+
         let startTime = null;
 
-        // Curva simples (Linear)
+        // Curva de Easing: Ease-Out Quad (rápido no início, suave no fim)
+        // Isso dá o feedback visual instantâneo que você precisa
         function easing(t) {
-            return t;
+            return t * (2 - t);
         }
 
         function animation(currentTime) {
@@ -101,6 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+        // Início imediato
         requestAnimationFrame(animation);
     }
 
@@ -110,8 +115,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const id = this.getAttribute('href');
             if (id !== '#') {
                 e.preventDefault();
-                // Usamos uma duração maior (1500ms) para ser bem suave como solicitado
-                scrollSuaveCustomizado(id, 1500);
+                
+                // Feedback visual instantâneo: pequena mudança de opacidade no link clicado
+                this.style.opacity = '0.5';
+                setTimeout(() => this.style.opacity = '1', 200);
+
+                scrollSuaveCustomizado(id, 1200);
             }
         });
     });
