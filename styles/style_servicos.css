@@ -4,27 +4,78 @@
     box-sizing: border-box;
 }
 
+:root {
+    /* Cores principais do projeto: Vermelho, Chumbo e Branco */
+    --cor-primaria: #a52a2a;
+    --cor-secundaria: #333333;
+    --cor-header: #373737;
+    --cor-branca: #ffffff;
+    --cor-fundo: #f4f4f4;
+    --tom-link: #ff4e4e;
+
+    /* Área mínima de clique recomendada para acessibilidade */
+    --area-clicavel: 48px;
+
+    /* Altura do header */
+    --header-mobile-retrato: 25svh;
+    --header-mobile-paisagem: 30svh;
+    --header-desktop-tablet: 20svh;
+
+    /* Variável dinâmica */
+    --altura-header: var(--header-mobile-retrato);
+
+    /* Carrossel */
+    --cor-texto: #FFF;
+    --anim-texto: 1s;
+    --anim-slide: 0.8s;
+    --delay-texto: 0.2s;
+    --texto-y: 55%;
+    --texto-x: 5%;
+    --easing: cubic-bezier(0.645, 0.045, 0.355, 1);
+    --fontPrim: Montserrat, sans-serif;
+}
+
+/* Ajuste automático da altura do header */
+@media (orientation: landscape) {
+    :root {
+        --altura-header: var(--header-mobile-paisagem);
+    }
+}
+
+@media (min-width: 992px) {
+    :root {
+        --altura-header: var(--header-desktop-tablet);
+    }
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 #container-servicos {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 25px;
-    background-color: #ffffff;
-    min-height: 70svh;
+    background-color: var(--cor-branca);
+    min-height: calc(100svh - var(--altura-header));
 }
 
-#container-servicos h1{
+#container-servicos h1 {
     text-align: center;
     text-transform: uppercase;
     margin-bottom: 10px;
     font-size: 25px;
+    color: var(--cor-secundaria);
 }
 
 #container-servicos hr {
     width: 40px;
     height: 3px;
-    background-color: #cc1f1f;
+    background-color: var(--cor-primaria);
     border: 0;
     margin-bottom: 20px;
 }
@@ -34,6 +85,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .servicos {
@@ -41,10 +93,16 @@
     flex-direction: row;
     align-items: center;
     border-radius: 10px;
-    background-color: #ffffff;
+    background-color: var(--cor-branca);
     margin-bottom: 20px;
     width: 100%;
-    border: 2px solid #f5f5f5;
+    border: 2px solid var(--cor-fundo);
+    transition: all 0.3s ease;
+}
+
+.servicos:hover {
+    border-color: var(--cor-primaria);
+    transform: translateY(-5px);
 }
 
 .img-wrapper {
@@ -58,6 +116,7 @@
     width: 170px;
     height: 140px;
     border-radius: 10px;
+    object-fit: cover;
 }
 
 .img-wrapper i {
@@ -68,9 +127,9 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    color: #ffffff;
-    border: 1px solid #ffffff;
-    background-color: #cc1f1f;
+    color: var(--cor-branca);
+    border: 1px solid var(--cor-branca);
+    background-color: var(--cor-primaria);
     position: absolute;
     bottom: 50px;
     right: -25px;
@@ -86,13 +145,16 @@
     text-transform: uppercase;
     font-size: 16px;
     margin-bottom: 10px;
+    color: var(--cor-secundaria);
 }
 
 .descricao-servicos p {
     font-size: 14px;
     color: #888888;
+    line-height: 1.5;
 }
 
+/* Desktop */
 @media (min-width: 1024px) {
     #container-servicos h1 {
         font-size: 33px;
@@ -101,7 +163,7 @@
     #container-servicos hr {
         margin-bottom: 30px;
     }
-    
+
     #container-cards {
         flex-direction: row;
         justify-content: center;
@@ -112,7 +174,7 @@
 
     .servicos {
         flex-direction: column;
-        margin: 0px 20px;
+        margin: 0 20px;
         width: 280px;
         min-height: 450px;
         height: auto;
@@ -128,21 +190,25 @@
     .img-wrapper img {
         width: 100%;
         height: 200px;
-        border-radius: 10px 10px 0px 0px;
+        border-radius: 10px 10px 0 0;
     }
 
     .img-wrapper i {
         bottom: -25px;
         left: 50%;
+        right: unset;
         transform: translateX(-50%);
-        right: unset; /* remove o right fixo */
+    }
+
+    .descricao-servicos {
+        margin-left: 0;
+        padding: 25px;
     }
 
     .descricao-servicos h2 {
-        text-transform: uppercase;
         font-size: 18px;
         margin-top: 30px;
-        margin-bottom: 0px;
+        margin-bottom: 0;
         text-align: center;
         line-height: 1.5;
     }
@@ -150,7 +216,7 @@
     .descricao-servicos p {
         font-size: 16px;
         margin-top: 10px;
-        line-height: 1.5;
         text-align: center;
+        line-height: 1.5;
     }
 }
