@@ -1,29 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Cores principais do projeto: Vermelho, Chumbo e Branco */
+    --cor-primaria: #a52a2a; /* Vermelho */
+    --cor-secundaria: #333333; /* Chumbo */
+    --cor-header: #373737;
+    --cor-branca: #ffffff;
+    --cor-fundo: #f4f4f4;
+    --tom-link: #ff4e4e; /* Tom para links e elementos interativos */
+
+    /* Área mínima de clique recomendada para acessibilidade */
+    --area-clicavel: 48px;
+
+    /* Altura do header definida para diferentes telas */
+    --header-mobile-retrato: 25svh;
+    --header-mobile-paisagem: 30svh;
+    --header-desktop-tablet: 35svh;
+    /* Variável dinâmica que será alterada via Media Queries */
+    --altura-header: var(--header-mobile-retrato);
+
+    /* Altura do conteúdo = 100% da tela menos a altura do header.
+       É recalculada automaticamente sempre que --altura-header mudar
+       (não precisa redefinir essa variável em cada media query). */
+    --altura-conteudo: calc(100svh - var(--altura-header));
+
+    /* Variável para controlar o tamanho do logo no header */
+    --tamanho-logo: 100%;
+
+    /* Estilos do carrossel */
+    --cor-texto: #FFF;
+    --anim-texto: 1s; /* tempo de animação texto */
+    --anim-slide: 0.8s; /* tempo slide */
+    --delay-texto: 0.2s; /* tempo do texto na tela */
+    --texto-y: 55%; /* altura do texto em relação à tela (top) */
+    --texto-x: 5%; /* margem esquerda do texto */
+    --easing: cubic-bezier(0.645, 0.045, 0.355, 1); /* efeito elástico/suave no texto e slide */
+    --fontPrim: Montserrat, sans-serif; /* fonte primária */
+    --fontSec: 'Inter', sans-serif; /* fonte secundária */
+
+    /* Tipografia responsiva da seção de contato */
+    --fs-titulo: 20px;   /* h1 do #faqs e #info-empresa */
+    --fs-corpo: 14px;    /* .perguntas, .descricoes e botão #orcamento */
+
+    /* Espaçamentos responsivos */
+    --mb-hr-faqs: 20px;     /* hr dentro de #faqs */
+    --mb-hr-empresa: 20px;  /* hr dentro de #info-empresa */
+    --mt-orcamento: 20px;   /* margem superior do botão #orcamento */
+    --mb-descricoes: 20px;  /* margem inferior de .descricoes */
+
+    /* Dimensões do iframe */
+    --iframe-max-width: 380px;
+    --iframe-height: 300px;
+}
+
+/* Media Queries para ajustar a altura do header dinamicamente.
+   --altura-conteudo é recalculada automaticamente, pois depende de --altura-header. */
+@media (orientation: landscape) {
+    :root {
+        --altura-header: var(--header-mobile-paisagem);
+    }
+}
+@media (min-width: 992px) {
+    :root {
+        --altura-header: var(--header-desktop-tablet);
+    }
+}
+
+/* Ajustes responsivos da seção de contato */
+@media (min-width: 1024px) {
+    :root {
+        --fs-titulo: 25px;
+        --fs-corpo: 16px;
+
+        --mb-hr-faqs: 40px;
+        --mb-hr-empresa: 50px;
+        --mt-orcamento: 50px;
+        --mb-descricoes: 50px;
+
+        --iframe-max-width: 440px;
+        --iframe-height: 500px;
+    }
+}
+
 #contato {
-    max-width: 100vw;
+    max-width: 100%;
     margin: 0 auto;
-    min-height: calc(100vh - var(--altura-header));
+    min-height: var(--altura-conteudo);
 }
 
 #faqs {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: lightgray;
+    background-color: #1a1a1a;
     padding: 50px;
 }
 
 #faqs h1 {
     text-transform: uppercase;
-    font-size: 20px;
+    font-size: var(--fs-titulo);
     margin-bottom: 10px;
+    color: #f5f5f5;
 }
 
 #faqs hr {
     width: 40px;
     height: 3px;
-    background-color: red;
+    background-color: #cc1f1f;
     border: 0;
-    margin-bottom: 20px;
+    margin-bottom: var(--mb-hr-faqs);
 }
 
 #faqs .perguntas {
@@ -31,11 +120,13 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px 15px;
+    color: #f5f5f5;
     width: 100%;
     margin-bottom: 20px;
-    background-color: white;
+    background-color: #1a1a1a;
     border-radius: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.2)
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: var(--fs-corpo);
 }
 
 #faqs .perguntas i {
@@ -47,52 +138,54 @@
     padding: 0px 15px 15px 15px;
     font-size: 14px;
     line-height: 1.6;
-    color: #444;
+    color: #f5f5f5;
 }
 
 #faqs #orcamento {
-    background-color: brown;
+    background-color: #cc1f1f;
     padding: 15px 15px;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 5px;
-    margin-top: 20px;
-    color: white;
+    margin-top: var(--mt-orcamento);
+    color: #ffffff;
     text-transform: uppercase;
     align-self: center;
     text-decoration: none;
+    font-size: var(--fs-corpo);
 }
 
 #info-empresa {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: gray;
-    padding: 50px;
+    background-color: #f5f5f5;
+    padding: 40px 20px;
 }
 
 #info-empresa h1 {
     text-transform: uppercase;
-    font-size: 20px;
+    font-size: var(--fs-titulo);
     margin-bottom: 10px;
 }
 
 #info-empresa hr {
     width: 40px;
     height: 3px;
-    background-color: red;
+    background-color: #cc1f1f;
     border: 0;
-    margin-bottom: 20px;
+    margin-bottom: var(--mb-hr-empresa);
 }
 
-#info-empresa .descricoes{
-    font-size: 14px;
-    margin-bottom: 20px;
+#info-empresa .descricoes {
+    font-size: var(--fs-corpo);
+    margin-bottom: var(--mb-descricoes);
     line-height: 1.6;
 }
 
 #info-empresa iframe {
-    max-width: 380px;
-    height: 300px;
+    width: 100%;
+    max-width: var(--iframe-max-width);
+    height: var(--iframe-height);
     align-self: center;
 }
 
@@ -100,8 +193,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: brown;
+    background-color: #cc1f1f;
     padding-bottom: 20px;
+    width: 100%;
 }
 
 #imagem-caminhao {
@@ -115,7 +209,7 @@
 }
 
 #frase {
-    color: white;
+    color: #ffffff;
     padding: 25px;
 }
 
@@ -130,9 +224,9 @@
 }
 
 #container-frase a {
-    background-color: brown;
+    background-color: #cc1f1f;
     border: 1px solid rgba(255, 255, 255, 0.5);
-    color: white;
+    color: #ffffff;
     font-size: 16px;
     padding: 15px 30px;
     border-radius: 5px;
@@ -146,30 +240,12 @@
         display: flex;
         flex-wrap: wrap;
         align-items: stretch;
-        height: 100vh;
     }
 
     #faqs {
         flex: 0.6;
     }
 
-    #faqs h1 {
-        font-size: 25px;
-    }
-
-    #faqs hr {
-        margin-bottom: 40px;
-    }
-
-    #faqs .perguntas {
-        font-size: 18px;
-    }
-
-    #faqs #orcamento {
-        font-size: 18px;
-        margin-top: 50px;
-    }
-    
     #info-empresa {
         flex: 1;
         flex-direction: row;
@@ -177,26 +253,11 @@
     }
 
     #info-empresa .descricoes-container {
-        flex: 1;             
-    }
-
-    #info-empresa h1 {
-        font-size: 25px;
-    }
-
-    #info-empresa hr{
-        margin-bottom: 50px;
-    }
-
-    #info-empresa .descricoes {
-        font-size: 20px;
-        margin-bottom: 50px;
+        flex: 1;
     }
 
     #info-empresa iframe {
         flex: 1;
-        max-width: 440px;
-        height: 500px;
         align-self: center;
     }
 

@@ -2,7 +2,7 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   z-index: 1000;
   height: var(--altura-header);
   display: grid;
@@ -33,7 +33,7 @@ main {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   justify-content: center;
   align-items: center;
@@ -78,7 +78,8 @@ main {
 }
 
 .logo img, .logo svg, .logo object {
-  width: 192px;
+  width: 100%;
+  max-width: 180px;
   height: auto;
 }
 
@@ -91,15 +92,16 @@ main {
   display: flex;
   justify-self: end;
   align-self: center;
+  padding-right: 10px;
 }
 
 .cta-container img {
-  padding: 1.2em !important;
+  padding: 0.5em !important;
   filter: invert(1);
 }
 
 .hamb{
-  width: 72px;
+  width: 54px;
 }
 
 .btn-orcamento {
@@ -235,7 +237,7 @@ a.btn:hover {
 #secao-hero {
     min-height: calc(100svh - var(--altura-header));
     padding: 0;
-    width: 100vw;
+    width: 100%;
     margin: 0;
 }
 
@@ -244,7 +246,7 @@ a.btn:hover {
     position: relative;
     display: block;
     height: calc(100svh - var(--altura-header));
-    width: 100vw;
+    width: 100%;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -412,7 +414,7 @@ a.btn:hover {
     filter: saturate(90%) brightness(150%);
   }
   #secao-hero{
-    width: 100vw;
+    width: 100%;
   }
 }
 

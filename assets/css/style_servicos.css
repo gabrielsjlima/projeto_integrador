@@ -37,6 +37,7 @@
     background-color: var(--cor-branca);
     margin-bottom: 20px;
     width: 100%;
+    overflow: hidden;
 }
 
 .img-wrapper {
@@ -44,11 +45,12 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    flex-shrink: 0;
 }
 
 .img-wrapper img {
-    width: 170px;
-    height: 140px;
+    width: 140px;
+    height: 120px;
     border-radius: 10px;
 }
 
@@ -100,7 +102,7 @@
     #container-cards {
         flex-direction: row;
         justify-content: center;
-        width: 100vw;
+        width: 100%;
     }
 
     .servicos {

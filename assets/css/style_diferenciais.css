@@ -23,7 +23,8 @@
 
 #diferenciais-card {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    width: 100%;
     max-width: 800px;
 }
 
@@ -35,17 +36,33 @@
     align-items: center;
     text-align: center;
     gap: 10px;
-}
-
-/* linha vertical do centro: só os cards da esquerda (ímpares) */
-.cards:nth-child(odd) {
-    border-right: 1px solid var(--cor-secundaria);
-}
-
-/* linha horizontal do centro: só os dois primeiros cards */
-.cards:nth-child(1),
-.cards:nth-child(2) {
     border-bottom: 1px solid var(--cor-secundaria);
+}
+
+/* Remove borda do último card no mobile */
+.cards:last-child {
+    border-bottom: none;
+}
+
+/* Ajustes para tablet/desktop no grid */
+@media (min-width: 480px) and (max-width: 1023px) {
+    #diferenciais-card {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .cards:nth-child(odd) {
+        border-right: 1px solid var(--cor-secundaria);
+    }
+    
+    .cards:nth-child(1),
+    .cards:nth-child(2) {
+        border-bottom: 1px solid var(--cor-secundaria);
+    }
+    
+    .cards:nth-child(3),
+    .cards:nth-child(4) {
+        border-bottom: none;
+    }
 }
 
 .cards i {
@@ -70,7 +87,7 @@
     #diferenciais {
         padding: 30px 0px;
         min-height: calc(100vh - var(--altura-header));
-        width: 100vw;
+        width: 100%;
     }
 
     #diferenciais-card {

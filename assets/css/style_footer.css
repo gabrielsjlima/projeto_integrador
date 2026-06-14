@@ -104,7 +104,7 @@
 
 #footer {
     background-color: #1a1a1a;
-    padding: 40px 30px;
+    padding: 40px 20px;
 }
 
 #horario-funcionamento h1 {
@@ -142,13 +142,14 @@
 }
 
 #imagens-pagamento {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 #imagens-pagamento img {
-    width: 120px;
-    height: 80px;
+    width: 100px;
+    height: auto;
 }
 
 @media (min-width: 1024px) {
