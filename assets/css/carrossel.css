@@ -1,14 +1,8 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 header {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   z-index: 1000;
   height: var(--altura-header);
   display: grid;
@@ -241,7 +235,7 @@ a.btn:hover {
 #secao-hero {
     min-height: calc(100svh - var(--altura-header));
     padding: 0;
-    width: 100%;
+    width: 100vw;
     margin: 0;
 }
 
@@ -250,7 +244,7 @@ a.btn:hover {
     position: relative;
     display: block;
     height: calc(100svh - var(--altura-header));
-    width: 100%;
+    width: 100vw;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -397,7 +391,7 @@ a.btn:hover {
 
 @media (orientation: portrait) {
     .slide::after {
-        background: linear-gradient(0deg in oklab, oklab(0% 0 0), transparent);
+        background: linear-gradient(0deg in oklab, #000000, transparent);
     }
     .slide-imagem{
         object-position: 50% 50%;
@@ -416,6 +410,9 @@ a.btn:hover {
 @media (min-width: 1024px) {
   .slide {
     filter: saturate(90%) brightness(150%);
+  }
+  #secao-hero{
+    width: 100vw;
   }
 }
 

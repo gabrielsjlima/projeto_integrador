@@ -1,8 +1,6 @@
-/* 1. Definição das variáveis de cores e configurações globais */
+/* Definição das variáveis de cores e configurações globais */
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
-
 
 :root {
     /* Cores principais do projeto: Vermelho, Chumbo e Branco */
@@ -34,10 +32,10 @@
     --texto-x: 5%; /* margem esquerda do texto */
     --easing: cubic-bezier(0.645, 0.045, 0.355, 1); /* efeito elástico/suave no texto e slide */
     --fontPrim: Montserrat, sans-serif; /* fonte primária */
-
 }
 
 /* Media Queries para ajustar a altura do header dinamicamente */
+
 @media (orientation: landscape) {
     :root {
         --altura-header: var(--header-mobile-paisagem);
@@ -51,6 +49,7 @@
 }
 
 /* Reset básico para consistência entre navegadores */
+
 * {
     margin: 0;
     padding: 0;
@@ -60,7 +59,4 @@
 body {
     line-height: 1.6;
     font-family: 'Montserrat', sans-serif !important;
-}
-html {
-    /* Removido scroll-behavior: smooth para não conflitar com o JS */
 }

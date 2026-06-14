@@ -35,8 +35,8 @@
                 <span class="btn-fechar">&times;</span>
                 <a href="#container-servicos">Serviços</a>
                 <a href="#descricao">Empresa</a>
-                <a href="#">Diferenciais</a>
-                <a href="#">Contato</a>
+                <a href="#diferenciais">Diferenciais</a>
+                <a href="#contato">Contato</a>
             </nav>
             <div class="cta-container">
                 <img src="assets/imgs/svgs/hamb.svg" alt="menu" class="hamb">
@@ -261,6 +261,171 @@
             <img src="assets/imgs/empresa/fundo_loja.jpeg" alt="Fachada da Loja">
         </div>
     </section>
+
+    <!-- Seção dos diferenciais -->
+    <section id="diferenciais">
+        <!-- Titulo -->
+        <h1>Nossos Diferenciais</h1>
+        <hr>
+
+        <!-- Div com os 4 cards-->
+        <div id="diferenciais-card">
+            <!-- Card das peças de qualidade -->
+            <div class="cards">
+                <i class="fa-solid fa-ranking-star"></i>
+                <h2>Peças de qualidade</h2>
+                <p>Trabalhamos com peças de alta qualidade e procedência garantida.</p>
+                
+            </div>
+
+            <!-- Card de socorro na estrada-->
+            <div class="cards">
+                <i class="fa-solid fa-road"></i>
+                <h2>Socorro na estrada</h2>
+                <p>Atendimento 24h para socorro e assistência na estrada</p>
+            </div>
+
+            <!-- Card dos mecânicos-->
+            <div class="cards">
+                <i class="fa-solid fa-user-gear"></i>
+                <h2>Mecânicos especializados</h2>
+                <p>Profissionais treinados e qualificados para oferecer o melhor serviço</p>
+            </div>
+
+            <!-- Card do atendimento -->
+            <div class="cards">
+                <i class="fa-regular fa-clock"></i>
+                <h2>Atendimento rápido</h2>
+                <p>Agilidade nos serviços para reduzir o tempo de parada do seu veículo</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção do contato -->
+    <section id="contato">
+        <!-- Section sobre as perguntas e respostas (Faqs) -->
+        <div id="faqs">
+            <h1>Perguntas Frequentes</h1>
+            <hr>
+
+            <!-- 1 Pergunta -->
+            <button class="perguntas">
+                Vocês antendem emergência na estrada?
+                <i class="fa-solid fa-angle-down"></i>
+            </button>
+            <p class="respostas">Sim! Realizamos atendimento emergencial na estrada para ajudar caminhões e veículos
+                diesel com problemas mecânicos. Entre em contato conosco para verificar disponibilidade e localização do
+                atendimento.</p>
+
+            <!-- 2 Pergunta -->
+            <button class="perguntas">
+                Quais tipos de veículos vocês atendem?
+                <i class="fa-solid fa-angle-down"></i>
+            </button>
+            <p class="respostas">Atendemos caminhões, carretas, ônibus, vans, máquinas agrícolas e veículos a diesel em
+                geral, nacionais e importados.</p>
+
+            <!-- 3 Pergunta -->
+            <button class="perguntas">
+                Quais são as formas de pagamento?
+                <i class="fa-solid fa-angle-down"></i>
+            </button>
+            <p class="respostas">Aceitamos PIX, dinheiro, cartões de débito e crédito. Entre em contato para mais
+                informações sobre as condições de pagamento.</p>
+
+            <!-- 4 Pergunta -->
+            <button class="perguntas">
+                É necessário agendar o serviço?
+                <i class="fa-solid fa-angle-down"></i>
+            </button>
+            <p class="respostas">Para serviços maiores e manutenções preventivas, recomendamos agendamento. Já
+                emergências e atendimentos rápidos podem ser realizados conforme disponibilidade.</p>
+
+            <!-- Botão de solicitar orçamento, com link para o Whatsapp -->
+            <a id="orcamento" href="https://wa.me/551935812129"
+                target="_blank">
+                <i class="fa-brands fa-whatsapp fa-xl"></i>
+                Solicite um orçamento
+            </a>
+        </div>
+
+        <!-- Section contendo informações da empresa, contendo telefones e localização -->
+        <div id="info-empresa">
+            <div class="descricoes-container">
+                <h1>Entre em contato</h1>
+                <hr>
+                <!-- Dados de telefone e endereço da empresa -->
+                <p class="descricoes"><i class="fa-brands fa-whatsapp fa-lg"></i> (19) 3581-2129</p>
+                <p class="descricoes"><i class="fa-solid fa-phone fa-lg"></i> (19) 3581-2129</p>
+                <p class="descricoes"><i class="fa-brands fa-instagram fa-lg"></i> irmaosberreta</p>
+                <p class="descricoes"><i class="fa-solid fa-location-dot fa-lg"></i> Av: João José Attab Miziara,
+                    2200<br>Areia Branca - Porto Ferreira (SP)</p>
+            </div>
+
+            <!-- Mapa de localização da empresa, com o código que o google maps disponibiliza (iframe) -->
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3677.0146904215326!2d-47.490269927210974!3d-21.873332389421986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b803d341ba11d5%3A0x391af3b11f3d7566!2sAv.%20Jo%C3%A3o%20Jos%C3%A9%20Attab%20Miziara%2C%202200%2C%20Porto%20Ferreira%20-%20SP%2C%2013660-000!5e0!3m2!1spt-BR!2sbr!4v1777763158467!5m2!1spt-BR!2sbr"
+                width="100%" height="300" style="border: 3px solid white" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <!-- Section contendo meio que um "slogan", e a imagem do caminhão -->
+        <div id="container-frase">
+            <div id="imagem-caminhao">
+                <!-- Imagem do caminhão em forma de ícone -->
+                <i class="fa-regular fa-truck fa-5x" style="color: white;"></i>
+
+                <!-- Texto ao lado da imagem do caminhão -->
+                <div id="frase">
+                    <h1>Seu caminhão merece o melhor cuidado!</h1>
+                    <p>Fale com nossa equipe e mantenha a sua frota sempre em movimento.</p>
+                </div>
+            </div>
+
+            <!-- Botão de solicitar orçamento, com link para o Whatsapp -->
+            <a href="https://wa.me/551935812129" target="_blank">Solicite um orçamento</a>
+        </div>
+    </section>
+
+    <!-- Seção footer (rodapé) -->
+     <footer id="footer">
+        <!-- Logo da empresa -->
+        <div id="logo-footer">
+            <img src="" alt="logo_da_empresa">
+        </div>
+
+        <!-- Informações do horário de funcionamento -->
+        <div id="horario-funcionamento">
+            <h1>Horário de funcionamento</h1>
+            <p>Segunda-feira	07:30–11:00, 12:30–17:00 <br>
+            Terça-feira	07:30–11:00, 12:30–18:00 <br>
+            Quarta-feira	07:30–11:00, 12:30–18:00 <br>
+            Quinta-feira	07:30–11:00, 12:30–18:00 <br>
+            Sexta-feira	    07:30–11:00, 12:00–18:00 <br>
+            </p>
+        </div>
+
+        <!-- Formas de contato -->
+        <div id="formas-contato">
+            <h1>Formas de contato</h1>
+            <p><i class="fa-solid fa-phone fa-lg"></i> (19) 3581-2129</p>
+            <p><i class="fa-solid fa-envelope"></i> contato@iberreta.com.br</p>
+            <p><i class="fa-brands fa-instagram fa-lg"></i> @irmaosberreta</p>
+        </div>
+
+        <!-- Formas de pagamento -->
+        <div id="formas-pagamento">
+            <h1>Formas de pagamento </h1>
+            <!-- Imagens de pagamento -->
+            <div id="imagens-pagamento">
+                <img src="imagens/master.png" alt="bandeira de cartão master">
+                <img src="imagens/visa.png" alt="bandeira de cartão visa">
+                <img src="imagens/american.png" alt="bandeira de cartão american express">
+                <img src="imagens/pix.png" alt="foto do emblema do pix">
+            </div>
+        </div>
+
+     </footer>
   
   
 

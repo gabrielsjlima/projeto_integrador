@@ -1,16 +1,10 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
 #diferenciais {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: white;
-    padding: 20px;
+    background-color: var(--cor-branca);;
+    /* padding: 20px; */
 }
 
 #diferenciais h1 {
@@ -22,7 +16,7 @@
 #diferenciais hr {
     width: 40px;
     height: 3px;
-    background-color: red;
+    background-color: var(--cor-primaria);
     border: 0;
     margin-bottom: 40px;
 }
@@ -30,12 +24,11 @@
 #diferenciais-card {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    width: 100%;
     max-width: 800px;
 }
 
 .cards {
-    background-color: white;
+    background-color: var(--cor-branca);
     padding: 30px 20px;
     display: flex;
     flex-direction: column;
@@ -46,17 +39,17 @@
 
 /* linha vertical do centro: só os cards da esquerda (ímpares) */
 .cards:nth-child(odd) {
-    border-right: 1px solid #d0d0d0;
+    border-right: 1px solid var(--cor-secundaria);
 }
 
 /* linha horizontal do centro: só os dois primeiros cards */
 .cards:nth-child(1),
 .cards:nth-child(2) {
-    border-bottom: 1px solid #d0d0d0;
+    border-bottom: 1px solid var(--cor-secundaria);
 }
 
 .cards i {
-    color: red;
+    color: var(--cor-primaria);
     font-size: 40px;
     flex-shrink: 0;
     margin-bottom: 10px;
@@ -69,13 +62,15 @@
 
 .cards p {
     font-size: 15px;
-    color: #555;
+    color: var(--cor-header);;
     line-height: 1.6;
 }
 
 @media (min-width: 1024px) {
     #diferenciais {
         padding: 30px 0px;
+        min-height: calc(100vh - var(--altura-header));
+        width: 100vw;
     }
 
     #diferenciais-card {
@@ -83,7 +78,7 @@
         justify-content: center;
         align-items: stretch;
         width: 100%;
-        max-width: 1250px;
+        /* max-width: 1250px; */
     }
 
     /* Remove bordas do mobile */
@@ -96,7 +91,7 @@
         flex: 1;
         padding: 20px 30px;
         border: none;
-        border-right: 1px solid #d0d0d0;
+        border-right: 1px solid var(--cor-secundaria);;
     }
 
     .cards:last-child {
