@@ -9,22 +9,31 @@ html {
 }
 
 header {
-  height: 25svh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  height: var(--altura-header);
   display: grid;
   grid-template-columns: 3fr 1fr;
   align-items: center; 
   background-color: #262626;
-  color: #ffffff;   
+  color: #ffffff;
+}
+
+main {
+  padding-top: var(--altura-header);
 }
 
 .fixo{
   grid-row: 1;
   grid-column: 1 / -1;    
-  position: sticky;
-  top: 0;
   z-index: 100;    
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  height: 100%;
+  align-items: center;
 }
 
 .nav-links {
@@ -78,7 +87,7 @@ header {
   width: 100%;
 }
 
-.logo object {
+.logo img, .logo svg, .logo object {
   width: 192px;
   height: auto;
 }
@@ -348,7 +357,6 @@ nav a {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    overscroll-behavior: none;
 }
     
 #trilha-slides{
@@ -616,7 +624,7 @@ nav a {
     }    
 }
 @media (max-height: 480px) and (orientation: landscape) {  
-    .logo object {
+    .logo img, .logo svg, .logo object {
         width: 104px !important;
     }
     .cta-container img{

@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- LÓGICA DO SVG DA LOGO (Fix para Object) ---
+    // --- LÓGICA DO SVG DA LOGO (link para home e reset da animação) ---
     const logoAnimada = document.getElementById('logo-svg');
     if (logoAnimada) {
         function resetarLogo() {
@@ -36,10 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
         logoAnimada.addEventListener('mouseenter', resetarLogo);
         logoAnimada.addEventListener('touchstart', resetarLogo, { passive: true });
         
-        // Clique para voltar ao topo/home
+        // Clique para voltar ao topo/home com scroll suave
         logoAnimada.style.cursor = 'pointer';
         logoAnimada.addEventListener('click', () => {
-            window.location.href = '#secao-hero';
+            scrollSuaveCustomizado('html', 1500); 
         });
     }
 
@@ -65,25 +65,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- LÓGICA DE SCROLL SUAVE CUSTOMIZADO ---
-    function scrollSuaveCustomizado(targetId, duracao = 1000) {
+    /**
+     * @param {string} targetId - Seletor do elemento alvo (ex: '#contato' ou 'html')
+     * @param {number} duracao - Duração em ms
+     */
+    function scrollSuaveCustomizado(targetId, duracao = 200) {
         const target = document.querySelector(targetId);
         if (!target) return;
 
-        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+        // Pega a altura do header dinamicamente para compensar o scroll
+        const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+        
+        const targetPosition = target === document.documentElement || target === document.body 
+            ? 0 
+            : target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
         const startPosition = window.pageYOffset;
         const distance = targetPosition - startPosition;
         let startTime = null;
 
+        // Curva simples (Linear)
         function easing(t) {
-            return 1 - Math.pow(1 - t, 4); // Quartic Out
+            return t;
         }
 
         function animation(currentTime) {
             if (startTime === null) startTime = currentTime;
             const timeElapsed = currentTime - startTime;
-            const run = easing(Math.min(timeElapsed / duracao, 1));
-            
-            window.scrollTo(0, startPosition + distance * run);
+            const progress = Math.min(timeElapsed / duracao, 1);
+
+            window.scrollTo(0, startPosition + distance * easing(progress));
 
             if (timeElapsed < duracao) {
                 requestAnimationFrame(animation);
@@ -93,16 +104,15 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(animation);
     }
 
-    // Exemplo de uso opcional:
-    /*
+    // Ativando o scroll suave para todos os links internos
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const id = this.getAttribute('href');
             if (id !== '#') {
                 e.preventDefault();
-                scrollSuaveCustomizado(id, 1200);
+                // Usamos uma duração maior (1500ms) para ser bem suave como solicitado
+                scrollSuaveCustomizado(id, 1500);
             }
         });
     });
-    */
 });

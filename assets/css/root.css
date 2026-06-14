@@ -5,18 +5,18 @@
 
 
 :root {
-    /* 2. Cores principais do projeto: Vermelho, Chumbo e Branco */
+    /* Cores principais do projeto: Vermelho, Chumbo e Branco */
     --cor-primaria: #a52a2a; /* Vermelho */
     --cor-secundaria: #333333; /* Chumbo */
-    --cor-header: oklch(33.68% 0.00004 271.152); /* Cor do header usando oklch para melhor controle de luminosidade e saturação */
+    --cor-header: #373737; 
     --cor-branca: #ffffff;
     --cor-fundo: #f4f4f4;
     --tom-link: #ff4e4e; /* Tom para links e elementos interativos */
 
-    /* 3. Área mínima de clique recomendada para acessibilidade */
+    /* Área mínima de clique recomendada para acessibilidade */
     --area-clicavel: 48px;
     
-    /* 4. Altura do header definida para diferentes telas */
+    /* Altura do header definida para diferentes telas */
     --header-mobile-retrato: 25svh;
     --header-mobile-paisagem: 30svh;
     --header-desktop-tablet: 35svh;
@@ -33,13 +33,25 @@
     --anim-texto: 1s; /* tempo de animação texto */
     --anim-slide: 0.8s; /* tempo slide */
     --delay-texto: 0.2s; /* tempo do texto na tela */
-    --tam-header: 15svh; /* tamanho do header de acordo com a Júlia */
     --texto-y: 55%; /* altura do texto em relação à tela (top)*/
     --texto-x: 5%; /* margem esquerda do texto */
     --easing: cubic-bezier(0.645, 0.045, 0.355, 1); /* efeito elástico/suave no texto e slide */
     --fontPrim: Montserrat, sans-serif; /* fonte primária */    
     --fontSec: 'Inter', sans-serif; /* fonte secundária */
 
+}
+
+/* Media Queries para ajustar a altura do header dinamicamente */
+@media (orientation: landscape) {
+    :root {
+        --altura-header: var(--header-mobile-paisagem);
+    }
+}
+
+@media (min-width: 992px) {
+    :root {
+        --altura-header: var(--header-desktop-tablet);
+    }
 }
 
 /* Reset básico para consistência entre navegadores */
@@ -56,5 +68,3 @@ body {
 html {
     scroll-behavior: smooth;
 }
-
-    

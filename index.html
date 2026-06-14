@@ -14,6 +14,7 @@
     <!-- css -->
     <link rel="stylesheet" href="assets/css/root.css">
     <link rel="stylesheet" href="assets/css/carrossel.css">   
+    <link rel="stylesheet" href="assets/css/swipe-carrossel.css">
     <link rel="stylesheet" href="assets/css/style_contato.css">
     <link rel="stylesheet" href="assets/css/style_empresa.css">
     <link rel="stylesheet" href="assets/css/style_servicos.css">
@@ -32,7 +33,7 @@
             </div>
             <nav class="nav-links">
                 <span class="btn-fechar">&times;</span>
-                <a href="#">Serviços</a>
+                <a href="#container-servicos">Serviços</a>
                 <a href="#">Empresa</a>
                 <a href="#">Diferenciais</a>
                 <a href="#">Contato</a>
@@ -166,14 +167,73 @@
     </div>
     <!-- /carrossel-container -->
 
-  </section>       
+  </section>
+
+  <!-- Seção de serviços -->
+
+    <section id="container-servicos">
+        <h1>Nossos serviços</h1>
+
+        <hr>
+
+        <div id="container-cards">
+            <!-- 1 Card (Manutenções de motores a diesel) -->
+            <div class="servicos">
+                <div class="img-wrapper">
+                    <img src="assets/imgs/servicos//manutencao.jpg" alt="manutencao de motor">
+                    <i class="fa-solid fa-oil-can"></i>
+                </div>
+                <div class="descricao-servicos">
+                    <h2>Manutenção de Motores a Diesel</h2>
+                    <p>Manutenção preventiva e corretiva em motores a diesel, garantindo desempenho, economia e maior
+                        vida útil.</p>
+                </div>
+            </div>
+            <!-- 2 Card (Embreagem e Câmbio) -->
+            <div class="servicos">
+                <div class="img-wrapper">
+                    <img src="assets/imgs/servicos//embreagem.jpg" alt="embreagem e cambio">
+                    <i class="fa-solid fa-gears"></i>
+                </div>
+                <div class="descricao-servicos">
+                    <h2>Embreagem e Câmbio</h2>
+                    <p>Troca e reparo de embreagens e câmbios com qualidade e agilidade no atendimento.</p>
+                </div>
+            </div>
+            <!-- 3 Card (Manutenção e reparo de diferencial) -->
+            <div class="servicos">
+                <div class="img-wrapper">
+                    <img src="assets/imgs/servicos/diferencial.webp" alt="manutencao e reparo de diferencial">
+                    <i class="fa-solid fa-wrench"></i>
+                </div>
+                <div class="descricao-servicos">
+                    <h2>Manutenção e Reparo de Diferencial</h2>
+                    <p>Diagnóstico, reparo e regulagem de diferenciais para garantir segurança e performance.</p>
+                </div>
+            </div>
+            <!-- 4 Card (Freios e Suspensões) -->
+            <div class="servicos">
+                <div class="img-wrapper">
+                    <img src="assets/imgs/servicos/freios.jpg" alt="freios e suspensoes">
+                    <i class="fa-solid fa-gear"></i>
+                </div>
+                <div class="descricao-servicos">
+                    <h2>Freios e Suspensões</h2>
+                    <p>Revisão e manutenção de freios e suspensões para mais segurança na estrada.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+  
+  
 
     </main>
     <script src="assets/js/menu.js"></script>
-<!-- scripts do carrossel -->
-<script src="assets/js/carrossel-hero-bridge.js"></script>
-<script src="assets/js/carrossel.js"></script>
-<script src="assets/js/swipe-carrossel.js"></script>
+    <!-- scripts do carrossel -->
+    <script src="assets/js/carrossel-hero-bridge.js"></script>
+    <script src="assets/js/carrossel.js"></script>
+    <script src="assets/js/swipe-carrossel.js"></script>
 
 </body>
 </html>

@@ -1,7 +1,6 @@
 /**
  * Navegação por swipe no carrossel.
- * Usa a mesma irParaSlide dos botões (animações idênticas).
- * Não reinicia o autoplay — o intervalo segue rodando normalmente.
+ * Permite rolagem vertical nativa (pan-y) enquanto suporta swipes horizontais.
  */
 (function () {
   const container = document.getElementById('carrossel-container');
@@ -9,9 +8,8 @@
 
   if (!container || !trilhaSlides) return;
 
-  const DISTANCIA_MINIMA = 50;
-  const RAZAO_HORIZONTAL = 1.2;
-  const LIMITE_DIRECAO = 10;
+  const DISTANCIA_MINIMA = 40; // Distância mínima para considerar um swipe
+  const LIMITE_DIRECAO = 8;    // Tolerância inicial antes de travar a direção
 
   let inicioX = 0;
   let inicioY = 0;
@@ -35,11 +33,8 @@
   function avancarUmSlide() {
     const api = obterAPI();
     if (!api || emTransicao) return;
-
     const { slideAtual, totalSlides, irParaSlide } = api;
-    let proximo = slideAtual + 1;
-    if (proximo >= totalSlides) proximo = 0;
-
+    let proximo = (slideAtual + 1) % totalSlides;
     travarTransicao();
     irParaSlide(proximo);
   }
@@ -47,11 +42,8 @@
   function retrocederUmSlide() {
     const api = obterAPI();
     if (!api || emTransicao) return;
-
     const { slideAtual, totalSlides, irParaSlide } = api;
-    let anterior = slideAtual - 1;
-    if (anterior < 0) anterior = totalSlides - 1;
-
+    let anterior = (slideAtual - 1 + totalSlides) % totalSlides;
     travarTransicao();
     irParaSlide(anterior);
   }
@@ -64,41 +56,41 @@
     direcaoGesto = null;
   }
 
-  function obterCoordenadasToque(e) {
-    if (e.touches?.length) return e.touches[0];
-    return e;
-  }
-
   function aoMoverToque(e) {
-    if (emTransicao || direcaoGesto) return;
+    if (emTransicao || direcaoGesto === 'vertical') return;
 
-    const toque = obterCoordenadasToque(e);
-    if (!toque) return;
+    const toque = e.touches ? e.touches[0] : e;
+    const deltaX = toque.clientX - inicioX;
+    const deltaY = toque.clientY - inicioY;
 
-    const deltaX = Math.abs(toque.clientX - inicioX);
-    const deltaY = Math.abs(toque.clientY - inicioY);
-
-    if (deltaX < LIMITE_DIRECAO && deltaY < LIMITE_DIRECAO) return;
-
-    direcaoGesto = deltaY * RAZAO_HORIZONTAL >= deltaX ? 'vertical' : 'horizontal';
+    // Detecta a direção do gesto apenas uma vez após ultrapassar o limite
+    if (!direcaoGesto) {
+      if (Math.abs(deltaX) > LIMITE_DIRECAO || Math.abs(deltaY) > LIMITE_DIRECAO) {
+        if (Math.abs(deltaY) > Math.abs(deltaX)) {
+          direcaoGesto = 'vertical';
+          // Se for vertical, não fazemos nada e deixamos o navegador rolar
+        } else {
+          direcaoGesto = 'horizontal';
+          // Se for horizontal e quisermos evitar scroll lateral da página (raro em mobile se bem feito)
+          // Mas como estamos com passive: true, não podemos dar preventDefault.
+          // O touch-action: pan-y no CSS já ajuda a dizer ao navegador o que fazer.
+        }
+      }
+    }
   }
 
   function aoTerminarToque(e) {
-    if (emTransicao || direcaoGesto === 'vertical') {
+    if (emTransicao || direcaoGesto !== 'horizontal') {
       direcaoGesto = null;
       return;
     }
 
     const toque = e.changedTouches ? e.changedTouches[0] : e;
     const deltaX = toque.clientX - inicioX;
-    const deltaY = toque.clientY - inicioY;
-    const movimentoHorizontal = Math.abs(deltaX);
-    const movimentoVertical = Math.abs(deltaY);
-
+    
     direcaoGesto = null;
 
-    if (movimentoHorizontal < DISTANCIA_MINIMA) return;
-    if (movimentoVertical * RAZAO_HORIZONTAL >= movimentoHorizontal) return;
+    if (Math.abs(deltaX) < DISTANCIA_MINIMA) return;
 
     if (deltaX < 0) {
       avancarUmSlide();
@@ -107,29 +99,25 @@
     }
   }
 
-  function aoCancelarToque() {
-    direcaoGesto = null;
-  }
-
   function iniciarSwipe() {
-    if (!obterAPI()) return;
-
+    // Usamos touch events diretamente para melhor suporte a passive listeners
     container.addEventListener('touchstart', aoIniciarToque, { passive: true });
     container.addEventListener('touchmove', aoMoverToque, { passive: true });
     container.addEventListener('touchend', aoTerminarToque, { passive: true });
-    container.addEventListener('touchcancel', aoCancelarToque, { passive: true });
+    container.addEventListener('touchcancel', () => direcaoGesto = null, { passive: true });
 
-    container.addEventListener('pointerdown', aoIniciarToque, { passive: true });
-    container.addEventListener('pointermove', function (e) {
-      if (e.pointerType === 'mouse') return;
-      aoMoverToque(e);
+    // Suporte para Pointer Events (Windows Phone / Surface)
+    container.addEventListener('pointerdown', (e) => {
+        if (e.pointerType !== 'mouse') aoIniciarToque(e);
     }, { passive: true });
-    container.addEventListener('pointerup', function (e) {
-      if (e.pointerType === 'mouse') return;
-      aoTerminarToque(e);
+    container.addEventListener('pointermove', (e) => {
+        if (e.pointerType !== 'mouse') aoMoverToque(e);
     }, { passive: true });
-    container.addEventListener('pointercancel', aoCancelarToque, { passive: true });
+    container.addEventListener('pointerup', (e) => {
+        if (e.pointerType !== 'mouse') aoTerminarToque(e);
+    }, { passive: true });
   }
 
-  iniciarSwipe();
+  // Pequeno delay para garantir que o CarrosselHero esteja disponível
+  setTimeout(iniciarSwipe, 100);
 })();
