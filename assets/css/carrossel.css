@@ -415,6 +415,7 @@ a.btn:hover {
   }
   #secao-hero{
     width: 100%;
+    min-height: calc(100svh - var(--altura-header));        
   }
 }
 

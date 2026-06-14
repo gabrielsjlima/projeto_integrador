@@ -63,7 +63,7 @@
 @media (min-width: 1024px) {
     #empresa {
         flex-direction: row;
-        min-height: 80vh;
+        min-height: calc(100svh - var(--altura-header));
         width: 100%;
     }
 

@@ -89,7 +89,8 @@
 
 @media (min-width: 1024px) {
     #container-servicos{
-        min-height: calc(100vh - var(--altura-header));  
+        min-height: calc(100svh - var(--altura-header));
+        width: 100%;  
     }
     #container-servicos h1 {
         font-size: 33px;          

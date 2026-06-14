@@ -1,122 +1,21 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    /* Cores principais do projeto: Vermelho, Chumbo e Branco */
-    --cor-primaria: #a52a2a; /* Vermelho */
-    --cor-secundaria: #333333; /* Chumbo */
-    --cor-header: #373737;
-    --cor-branca: #ffffff;
-    --cor-fundo: #f4f4f4;
-    --tom-link: #ff4e4e; /* Tom para links e elementos interativos */
-
-    /* Área mínima de clique recomendada para acessibilidade */
-    --area-clicavel: 48px;
-
-    /* Altura do header definida para diferentes telas */
-    --header-mobile-retrato: 25svh;
-    --header-mobile-paisagem: 30svh;
-    --header-desktop-tablet: 35svh;
-    /* Variável dinâmica que será alterada via Media Queries */
-    --altura-header: var(--header-mobile-retrato);
-
-    /* Altura do conteúdo = 100% da tela menos a altura do header.
-       É recalculada automaticamente sempre que --altura-header mudar
-       (não precisa redefinir essa variável em cada media query). */
-    --altura-conteudo: calc(100svh - var(--altura-header));
-
-    /* Variável para controlar o tamanho do logo no header */
-    --tamanho-logo: 100%;
-
-    /* Estilos do carrossel */
-    --cor-texto: #FFF;
-    --anim-texto: 1s; /* tempo de animação texto */
-    --anim-slide: 0.8s; /* tempo slide */
-    --delay-texto: 0.2s; /* tempo do texto na tela */
-    --texto-y: 55%; /* altura do texto em relação à tela (top) */
-    --texto-x: 5%; /* margem esquerda do texto */
-    --easing: cubic-bezier(0.645, 0.045, 0.355, 1); /* efeito elástico/suave no texto e slide */
-    --fontPrim: Montserrat, sans-serif; /* fonte primária */
-    --fontSec: 'Inter', sans-serif; /* fonte secundária */
-
-    /* Tipografia responsiva da seção de contato */
-    --fs-titulo: 20px;   /* h1 do #faqs e #info-empresa */
-    --fs-corpo: 14px;    /* .perguntas, .descricoes e botão #orcamento */
-
-    /* Espaçamentos responsivos da seção de contato */
-    --mb-hr-faqs: 20px;     /* hr dentro de #faqs */
-    --mb-hr-empresa: 20px;  /* hr dentro de #info-empresa */
-    --mt-orcamento: 20px;   /* margem superior do botão #orcamento */
-    --mb-descricoes: 20px;  /* margem inferior de .descricoes */
-
-    /* Dimensões do iframe da seção de contato */
-    --iframe-max-width: 380px;
-    --iframe-height: 300px;
-
-    /* Tipografia responsiva da seção #diferenciais */
-    --fs-card-titulo: 18px; /* h2 dos cards */
-
-    /* Tipografia responsiva da seção #empresa */
-    --fs-label: 12px; /* texto pequeno em uppercase, ex: #sobre-nos */
-
-    /* Tipografia responsiva da seção #footer */
-    --fs-footer-titulo: 14px; /* h1 das colunas do footer */
-    --fs-footer-texto: 12px;  /* p das colunas do footer */
-}
-
-/* Media Queries para ajustar a altura do header dinamicamente.
-   --altura-conteudo é recalculada automaticamente, pois depende de --altura-header. */
-@media (orientation: landscape) {
-    :root {
-        --altura-header: var(--header-mobile-paisagem);
-    }
-}
-@media (min-width: 992px) {
-    :root {
-        --altura-header: var(--header-desktop-tablet);
-    }
-}
-
-/* Ajustes responsivos gerais a partir de 1024px */
-@media (min-width: 1024px) {
-    :root {
-        --fs-titulo: 25px;
-        --fs-corpo: 16px;
-
-        --mb-hr-faqs: 40px;
-        --mb-hr-empresa: 50px;
-        --mt-orcamento: 50px;
-        --mb-descricoes: 50px;
-
-        --iframe-max-width: 440px;
-        --iframe-height: 500px;
-
-        --fs-card-titulo: 16px;
-        --fs-label: 16px;
-
-        --fs-footer-titulo: 16px;
-        --fs-footer-texto: 14px;
-    }
-}
-
 #footer {
-    background-color: #1a1a1a;
+    background-color: var(--cor-header);
     padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #horario-funcionamento h1 {
     margin-top: 30px;
     text-transform: uppercase;
-    color: #ffffff;
+    color: var(--cor-branca);
     font-size: var(--fs-footer-titulo);
 }
 
 #horario-funcionamento p {
     margin-top: 15px;
-    color: #ffffff;
+    color: var(--cor-branca);
     font-size: var(--fs-footer-texto);
     line-height: 2.0;
 }
@@ -124,29 +23,35 @@
 #formas-contato h1{
     margin-top: 30px;
     text-transform: uppercase;
-    color: #ffffff;
+    color: var(--cor-branca);
     font-size: var(--fs-footer-titulo);
 }
 
 #formas-contato p {
     margin-top: 15px;
-    color: #ffffff;
+    color: var(--cor-branca);
     font-size: var(--fs-footer-texto);
 }
 
 #formas-pagamento h1{
     margin-top: 30px;
     text-transform: uppercase;
-    color: #ffffff;
+    color: var(--cor-branca);
     font-size: var(--fs-footer-titulo);
 }
 
 #imagens-pagamento {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
 }
 
+#horario-funcionamento h1{
+    font-size: 1em;
+}
+#horario-funcionamento p{
+    font-size: 0.8em;
+}
 #imagens-pagamento img {
     width: 100px;
     height: auto;

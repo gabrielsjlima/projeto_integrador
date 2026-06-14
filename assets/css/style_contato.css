@@ -152,6 +152,7 @@
         display: flex;
         flex-wrap: wrap;
         align-items: stretch;
+        min-height: calc(100svh - var(--altura-header));
     }
 
     #faqs {
