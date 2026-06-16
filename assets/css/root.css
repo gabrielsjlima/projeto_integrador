@@ -10,6 +10,8 @@
     --cor-branca: #ffffff;
     --cor-fundo: #f4f4f4;
     --tom-link: #ff4e4e; /* Tom para links e elementos interativos */
+    --hover-orcamento: #911e1e;
+    --bordas-nav-link: #ff7979;
 
     /* Área mínima de clique recomendada para acessibilidade */
     --area-clicavel: 48px;

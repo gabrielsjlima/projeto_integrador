@@ -6,7 +6,7 @@ header {
   z-index: 1000;
   height: var(--altura-header);
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 3fr 1fr; /*divisão 3 colunas para o logo, 1 para o menu hambúrguer*/
   align-items: center; 
   align-content: center;
   background-color: var(--cor-header);
@@ -50,7 +50,7 @@ main {
     top: 30px;
     right: 30px;
     font-size: 4rem;
-    color: #ff4e4e;
+    color: var(--tom-link);
     cursor: pointer;
     line-height: 1;
     z-index: 210;
@@ -80,9 +80,9 @@ main {
 
 .logo img, .logo svg, .logo object {
   width: 100%;
-  max-width: 13.5em;
+  max-width: 13.5rem;
   height: auto;
-  margin-top: 2.4em;
+  margin-top: 2.4rem;
 }
 
 .logo * {
@@ -99,7 +99,7 @@ main {
 
 .cta-container img {
   padding: 0.5em !important;
-  filter: invert(1);
+  filter: invert(1); /*muda a cor do hamburguer para branco */
 }
 
 .hamb{
@@ -111,7 +111,7 @@ main {
 }
 
 .btn-orcamento:hover {
-  background-color: #911e1e;
+  background-color: var(--hover-orcamento);
 }
 
 @keyframes subirEntrada {
@@ -126,18 +126,11 @@ main {
 }
 
 .nav-links a {
+
   opacity: 0;
   animation: subirEntrada 0.5s ease forwards;
-}
-
-.nav-links a:nth-child(1) { animation-delay: 0.1s; }
-.nav-links a:nth-child(2) { animation-delay: 0.2s; }
-.nav-links a:nth-child(3) { animation-delay: 0.3s; }
-.nav-links a:nth-child(4) { animation-delay: 0.4s; }
-
-.nav-links a{
-  border-bottom: 2px solid #d32f2f00;
-  border-top: 2px solid #d32f2f00;
+  border-bottom: 2px solid transparent;
+  border-top: 2px solid transparent;
   color: #ffffff;
   padding: 12px 0;
   font-weight: 800;
@@ -145,13 +138,12 @@ main {
 }
 
 .nav-links a:hover{
-  border-bottom: 2px solid #d32f2f;
+  border-bottom: 2px solid var(--bordas-nav-link);
   padding: 12px 0;  
-  border-top: 2px solid #d32f2f;
-  color: #d32f2f;
+  border-top: 2px solid var(--bordas-nav-link);
+  color: var(--tom-link);
 }
 
-/* --- assets/css/buttons.css --- */
 .btn-navegacao {
   position: absolute;
   bottom: 0;
@@ -164,7 +156,6 @@ main {
   border-radius: 50%;
   cursor: pointer;
   z-index: 3;
-  display: flex;
   align-items: center;
   justify-content: center;
   transition: background-color 0.3s, transform 0.2s;
@@ -197,7 +188,6 @@ main {
   right: 20px;
 }
 
-/* --- BOTÃO CTA (ORÇAMENTO) --- */ 
 a.btn {
   display: none !important;
   align-items: center;
@@ -223,7 +213,6 @@ a.btn:hover {
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 1) !important;
 }
 
-/* --- assets/css/gradiente.css --- */
 .slide::after {
     content: "";
     position: absolute;
@@ -243,7 +232,6 @@ a.btn:hover {
     margin: 0;
 }
 
-/* --- assets/css/slide.css --- */
 #carrossel-container{
     position: relative;
     display: block;
@@ -285,7 +273,6 @@ a.btn:hover {
     height: 100%;
     display: block;
     object-fit: cover;
-    /* object-position: top center; */
     transition: transform var(--anim-slide) var(--easing);
     transform: scale(1.05);
 }
@@ -355,7 +342,6 @@ a.btn:hover {
   animation-delay: var(--delay-texto);
 }
 
-/* --- assets/css/texto.css --- */
 .slide-texto {
     position: absolute;
     display: flex;
@@ -540,6 +526,3 @@ a.btn:hover {
     top: calc(var(--texto-y) - 4.4em);
   }
 }
-
-
-
