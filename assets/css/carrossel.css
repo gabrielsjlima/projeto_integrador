@@ -80,9 +80,9 @@ main {
 
 .logo img, .logo svg, .logo object {
   width: 100%;
-  max-width: 128px;
+  max-width: 13.5em;
   height: auto;
-  margin-top: 24px;
+  margin-top: 2.4em;
 }
 
 .logo * {
@@ -285,7 +285,7 @@ a.btn:hover {
     height: 100%;
     display: block;
     object-fit: cover;
-    object-position: top center;
+    /* object-position: top center; */
     transition: transform var(--anim-slide) var(--easing);
     transform: scale(1.05);
 }
@@ -524,7 +524,8 @@ a.btn:hover {
 }
 @media (max-height: 480px) and (orientation: landscape) {  
     .logo img, .logo svg, .logo object {
-        width: 104px !important;
+        width: 8em !important;
+        margin-bottom: 1.2em;
     }
     .cta-container img{
         padding: 0.8em !important;
@@ -533,3 +534,12 @@ a.btn:hover {
         width: 64px !important;
     }  
 }
+@media screen and (orientation: landscape) and (max-height: 300px) {
+  
+  .slide-texto{
+    top: calc(var(--texto-y) - 4.4em);
+  }
+}
+
+
+

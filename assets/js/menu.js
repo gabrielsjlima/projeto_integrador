@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- LÓGICA DO SVG DA LOGO (Fix para Object) ---
+    // --- LÓGICA DO SVG DA LOGO ---
     const logoAnimada = document.getElementById('logo-svg');
     if (logoAnimada) {
         function resetarLogo() {
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
      * @param {string} targetId - Seletor do elemento alvo (ex: '#contato' ou 'html')
      * @param {number} duracao - Duração em ms
      */
-    function scrollSuaveCustomizado(targetId, duracao = 800) {
+    function scrollSuaveCustomizado(targetId, duracao = 5000) {
         const target = document.querySelector(targetId);
         if (!target) return;
 
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let startTime = null;
 
         // Curva de Easing: Ease-Out Quad (rápido no início, suave no fim)
-        // Isso dá o feedback visual instantâneo que você precisa
+        
         function easing(t) {
             return t * (2 - t);
         }
@@ -116,11 +116,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (id !== '#') {
                 e.preventDefault();
                 
-                // Feedback visual instantâneo: pequena mudança de opacidade no link clicado
+                // Feedback visual - pequena mudança de opacidade no link clicado
                 this.style.opacity = '0.5';
                 setTimeout(() => this.style.opacity = '1', 200);
 
-                scrollSuaveCustomizado(id, 1200);
+                scrollSuaveCustomizado(id, 3000);
             }
         });
     });
